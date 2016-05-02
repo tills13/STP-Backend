@@ -1,0 +1,95 @@
+Farmer:
+    table: farmers
+    keys: [id]
+    on_delete: cascade
+    fields:
+        id:
+            column: unique_id_fixed
+            type: text
+        rawId:
+            column: unique_id_raw
+            type: text
+        name:
+            column: name
+            type: text
+        username:
+            column: username
+            type: text
+        createdAt:
+            column: created_at
+            type: timestamp
+        modifiedAt:
+            column: modified_at
+            type: timestamp
+        trades:
+            targetEntity: Trade
+            join:
+                type: many
+                local: id
+                foreign: seller
+
+Trade:
+    table: trades
+    keys: [id]
+    on_delete: cascade
+    fields:
+        id:
+            column: id
+            type: serial
+        status:
+            column: status
+            type: text
+        seller:
+            targetEntity: Farmer
+            join:
+                type: one
+                foreign: id
+                local: seller
+        buyer:
+            targetEntity: Farmer
+            join:
+                type: one
+                foreign: id
+                local: buyer
+        items:
+            targetEntity: TradeItem
+            join:
+                type: many
+                foreign: trade
+                local: id
+        askingPrice:
+            column: asking_price
+            type: numeric
+        createdAt:
+            column: created_at
+            type: timestamp
+        modifiedAt:
+            column: modified_at
+            type: timestamp
+
+TradeItem:
+    table: trade_items
+    keys: [id]
+    fields:
+        id:
+            column: id
+            type: serial
+        trade:
+            targetEntity: Trade
+            join:
+                type: one
+                foreign: id
+                local: trade
+        item: 
+            join:
+                table: items
+                type: one
+                local: item
+                foreignColumn: id
+                columns: [id,name,description,image_url]
+        amount:
+            column: amount
+            type: int
+        quality:
+            column: quality
+            type: int

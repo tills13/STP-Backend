@@ -1,0 +1,19 @@
+farmer:
+    type: group
+    route: /farmer
+    component: Farmer
+    routes:
+        edit_self:
+            route: /edit
+            controller: FarmerController
+            method: edit
+
+trade:
+    type: group
+    route: /trade
+    component: Farmer
+    routes:
+        delete_trade:
+            route: /{trade:int}/delete
+            controller: Farmer:TradeController
+            method: delete

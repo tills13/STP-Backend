@@ -1,0 +1,33 @@
+# =================
+# ASSET ROUTES
+# =================
+
+javascript:
+    route: /js/{filename:string}
+    controller: Common:ResourceController
+    method: getJS
+    methods: [get, post]
+
+style:
+    route: /css/{filename:string}
+    controller: Common:ResourceController
+    method: getCSS
+    methods: [get, post]
+
+font:
+    route: /font/{filename:string}
+    controller: Common:ResourceController
+    method: getFont
+    methods: [get, post]
+
+asset:
+    route: /asset/{filename:string}
+    controller: Common:ResourceController
+    method: getAsset
+    methods: [get, post]
+
+favicon:
+    route: /{filename:string}.ico
+    controller: Common:ResourceController
+    method: getAsset
+    methods: [get, post]

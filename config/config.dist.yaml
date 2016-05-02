@@ -1,0 +1,58 @@
+application:
+    name: stardewtp
+    namespace: StardewTP
+    app_class: StardewTP
+    debug: false
+
+logging:
+    message_format: "{date} [{level}{tag}] {message}"
+    date_format: "m-d G:i:s"
+    threshold: INFO
+    handlers:
+        default:
+            type: file
+            filename: "{app_name}_{name}"
+            threshold: INFO
+        orm_log:
+            type: file
+            filename: "orm_{date}"
+            restricted: true # only explicit requests to log with this handler
+        db_log:
+            type: file
+            filename: "db_{date}"
+            restricted: true
+
+database:
+    driver: Sebastian\Core:PostgresPDO
+    dbname: dbname
+    hostname: www.sbstn.ca
+    port: 5433
+    username: username
+    password: password
+
+cache:
+    enabled: true
+    driver: Sebastian\Core:NullDriver
+    #driver: Sebastian\Core:APCUDriver
+    logging: true
+    key_generation_strategy: 
+        object: '{class}_{component}_{id}'
+        other: '{hash}'
+
+components:
+    sebastian_extra:
+        orm:
+            enabled: true
+            repository:
+                use_reflection: true
+            entities:
+                Farmer: 
+                    entity: Common:Entity\Farmer
+                    repository: Common:Repository\Farmer
+                Trade:
+                    entity: Common:Entity\Trade
+                    repository: Common:Repository\Trade
+                Settings:
+                    entity: Common:Entity\Settings
+                TradeItem:
+                    entity: Common:Entity\TradeItem

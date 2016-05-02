@@ -1,0 +1,39 @@
+index:
+    route: /
+    controller: Common:TradeController
+    method: list
+
+trades:
+    route: /trades
+    controller: Common:TradeController
+    method: list
+
+trade_overview:
+    route: /trade/{trade:int}
+    controller: Common:TradeController
+    method: overview
+
+farmer_overview:
+    route: /farmer/{farmer:text}
+    controller: Common:FarmerController
+    method: overview
+
+heartbeat: 
+    route: /heartbeat
+    controller: StardewTPController
+    method: heartbeat
+
+login:
+    route: /login
+    controller: SecurityController
+    method: login
+
+register:
+    route: /register
+    controller: SecurityController
+    method: register
+
+logout:
+    route: /logout
+    controller: SecurityController
+    method: logout

@@ -1,0 +1,26 @@
+api:
+    type: group
+    route: /api
+    routes: 
+        initialize:
+            route: /initialize
+            controller: APIController
+            method: initialize
+            methods: [get, post]
+        new_trade:
+            route: /trade/new
+            controller: API:TradeController
+            method: new
+        trade_overview:
+            route: /trade/{trade:int}/overview
+            controller: API:TradeController
+            method: overview
+        farmer_overview:
+            route: /farmer/{farmer:text}/overview
+            controller: API:FarmerController
+            method: overview
+        farmers:
+            route: /farmers
+            controller: API:FarmerController
+            method: getFarmers
+
