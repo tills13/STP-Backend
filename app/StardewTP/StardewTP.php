@@ -26,7 +26,7 @@
 				new API\APIComponent($this, "API"),
 				new Farmer\FarmerComponent($this, "Farmer"),
 				new SebastianExtraComponent($this, "Extra", $config->sub('components.sebastian_extra')),
-				new InternalComponent($this, "Internal")
+				new InternalComponent($this, "Internal", $config->sub('components.sebastian_internal'))
 			]);
 
 			$this->registerExceptionHandler($this);
@@ -41,7 +41,7 @@
 			parent::shutdown($request, $response);
 
 			$diff = microtime(true) - $this->startTime;
-			print ("rendered in: {$diff} seconds");
+			//print ("rendered in: {$diff} seconds");
 			//$this->getLogger()->info("completed request in {$diff} seconds", "StardewTP");
 		}
 	}
