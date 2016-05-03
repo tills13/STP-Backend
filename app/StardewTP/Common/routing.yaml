@@ -37,3 +37,8 @@ logout:
     route: /logout
     controller: SecurityController
     method: logout
+
+test:
+    route: /test
+    controller: StardewTPController
+    method: test

@@ -32,6 +32,11 @@
 			$this->registerExceptionHandler($this);
 		}
 
+		public function preHandle() {
+			parent::preHandle();
+			$this->get('templating')->addMacro('test', function() { print ('test'); });
+		}
+
 		public function onException(Exception $e) {
 			print ($e->getMessage());
 			return true;

@@ -18,4 +18,23 @@
 				'message' => 'All Good!'
 			], Response::HTTP_OK);
 		}
+
+		public function testAction(Request $request) {
+			$formBuilder = $this->getFormBuilder();
+			$formBuilder->create('login');
+
+			$formBuilder->add('test1', 'text');
+			$formBuilder->add('test2', 'text');
+
+			$form = $formBuilder->getForm();
+			$form->handleRequest($request);
+
+			if ($request->method("POST")) {
+
+			}
+
+			return $this->render('test/test', [
+				'form' => $form
+			]);
+		}
 	}
