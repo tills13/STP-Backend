@@ -22,7 +22,10 @@
 		<div class="form-group">
 			<label for="<?=$form->get('unique_id')->getId()?>" class="col-sm-3 control-label">Unique Id</label>
 			<div class="col-sm-9">
-				<?=$form->get('unique_id')->render()?>
+				<div class="input-group">
+				  	<?=$form->get('unique_id')->render()?>
+				  	<span class="input-group-addon"><a href="#">?</a></span>
+				</div>
 			</div>
 		</div>
 

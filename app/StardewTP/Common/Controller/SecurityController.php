@@ -10,10 +10,10 @@
 
 	class SecurityController extends Controller {
 		public function loginAction(Request $request, Session $session) {
-			$factory = $this->getFormFactory();
-            $factory->createNamedForm('login_form')
+			$formBuilder = $this->getFormBuilder();
+            $formBuilder->create('login_form')
                     ->method("POST")
-                    ->attribute('class', 'login-form form-horizontal well')
+                    ->attribute('class', 'login-form form-horizontal')
                     ->add('username', 'text', [
                     	'id' => 'login-username',
                         'class' => 'form-control',
@@ -24,7 +24,7 @@
                         'placeholder' => 'Password'
                     ]);
 
-            $form = $factory->getForm();
+            $form = $formBuilder->getForm();
             $form->handleRequest($request);
 
 			if ($request->method('POST')) {
@@ -55,10 +55,10 @@
 		}
 
         public function registerAction(Request $request, Session $session) {
-            $factory = $this->getFormFactory();
-            $factory->createNamedForm('register_form')
+            $formBuilder = $this->getFormBuilder();
+            $formBuilder->create('register_form')
                     ->method("POST")
-                    ->attribute('class', 'login-form form-horizontal well')
+                    ->attribute('class', 'login-form form-horizontal')
                     ->add('username', 'text', [
                         'id' => 'login-username',
                         'class' => 'form-control',
@@ -81,7 +81,7 @@
                         'placeholder' => 'Confirm Password'
                     ]);
 
-            $form = $factory->getForm();
+            $form = $formBuilder->getForm();
             $form->handleRequest($request);
 
             if ($request->method('POST')) {
