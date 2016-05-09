@@ -19,7 +19,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="btn-group pull-right">
-						<input type="reset" class="btn btn-default"/>
+						<input type="reset" class="btn btn-warning"/>
 						<button type="submit" class="btn btn-success">Login</button>
 					</div>
 				</div>

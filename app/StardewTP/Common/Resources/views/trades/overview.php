@@ -2,12 +2,10 @@
 <?=$this->block('title', "Trade {$trade->getId()}")?>
 
 <?=$this->block('body')?>
-	<?php
-		$seller = $trade->getSeller();
-	?>
+	<?php $seller = $trade->getSeller(); ?>
 
 	<div class="trade <?=$trade->getStatus()?>">
-		<h2 class="title">Trade <?=$trade->getId()?> <small>from farmer <?=$seller->getName()?></small></h2>
+		<h2>Trade <?=$trade->getId()?> <small>from farmer <?=$seller->getName()?></small></h2>
 		<table class="table">
 			<thead>
 				<tr>
@@ -30,24 +28,28 @@
 				<?php } ?>
 			</tbody>
 		</table>
+
 		<?php if ($trade->is($trade::STATUS_OPEN) && $session->check()) { ?>
 			<div class="well">
 				If you'd like to buy these items, hit buy below and the next time you're on your farm, you'll be debited the amount listed and given the items.
 			</div>
 		<?php } ?>
 
-		<div class="row-fluid">
-			<div class="btn-group pull-right">
-				<?php if ($trade->is($trade::STATUS_OPEN) && $session->check() && (!$trade->getSeller()->equals($session->getUser()))) { ?>
-					<a href="" class="btn btn-success">Buy Items</a>
-				<?php } ?>
+		<div class="row footer">
+			<div class="col-md-6">
+				<div class="btn-group">
+					<?php if ($trade->is($trade::STATUS_OPEN) && $session->check() && (!$trade->getSeller()->equals($session->getUser()))) { ?>
+						<a href="" class="btn btn-success">Buy Items</a>
+					<?php } ?>
 
-				<?php if ($trade->is($trade::STATUS_OPEN) && ($trade->getSeller()->equals($session->getUser()))) { ?>
-					<a href="" class="btn btn-warning">Edit Trade</a>
-					<a href="<?=$router->generateUrl('trade:delete_trade', ['trade' => $trade->getId()])?>" class="btn btn-danger">Delete Trade</a>
-				<?php } ?>
-
-				<span class="btn btn-default">Price: <?=$trade->getAskingPrice()?>G</span>
+					<?php if ($trade->is($trade::STATUS_OPEN) && ($trade->getSeller()->equals($session->getUser()))) { ?>
+						<a href="" class="btn btn-warning">Edit Trade</a>
+						<a href="<?=$router->generateUrl('trade:delete_trade', ['trade' => $trade->getId()])?>" class="btn btn-danger">Delete Trade</a>
+					<?php } ?>
+				</div>
+			</div>
+			<div class="col-md-6 text-right">
+				<div class="label label-primary cost"><?=$trade->getAskingPrice()?><span class="gold">G</span></div>
 			</div>
 		</div>
 	</div>

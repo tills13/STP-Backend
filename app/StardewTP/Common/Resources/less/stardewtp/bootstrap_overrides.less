@@ -1,0 +1,54 @@
+.btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+    border-radius: 2px;
+    border: none;
+    .box-shadow(~'inset 0 -4px 0 rgba(255,255,255,0.5)');
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.label {
+    border-radius: @border-radius;
+    display: inline-block;
+
+    &.label-outline {
+        background: none;
+        border-width: 1px;
+        border-style: solid;
+
+        &.label-default { 
+            border-color: @label-default-bg; 
+            color: @label-default-bg; 
+        }
+
+        &.label-primary { 
+            border-color: @label-primary-bg; 
+            color: @label-primary-bg; 
+        }
+
+        &.label-success { 
+            border-color: @label-success-bg; 
+            color: @label-success-bg; 
+        }
+
+        &.label-info { 
+            border-color: @label-info-bg; 
+            color: @label-info-bg; 
+        }
+
+        &.label-warning { 
+            border-color: @label-warning-bg; 
+            color: @label-warning-bg; 
+        }
+
+        &.label-danger { 
+            border-color: @label-danger-bg; 
+            color: @label-danger-bg; 
+        }
+
+    }
+}

@@ -9,7 +9,7 @@
             $query = "
                 SELECT 
                     t.id,t.asking_price,t.status,t.created_at,t.modified_at,
-                    i.name as item,ti.amount,ti.quality,
+                    i.name as item, i.image_url as item_image,ti.amount,ti.quality,
                     f.username as buyer, f2.username as seller
                 FROM trade_items ti 
                 LEFT JOIN items i ON ti.item = i.id 
@@ -44,7 +44,8 @@
                 $finalTrades[$id]['items'][] = [
                     'item' => $trade['item'],
                     'amount' => $trade['amount'],
-                    'quality' => $trade['quality']
+                    'quality' => $trade['quality'],
+                    'image' => $trade['item_image']
                 ];
 
             }
