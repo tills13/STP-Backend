@@ -42,3 +42,8 @@ test:
     route: /test
     controller: StardewTPController
     method: test
+
+search:
+    route: /search
+    controller: StardewTPController
+    method: search

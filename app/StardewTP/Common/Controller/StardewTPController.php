@@ -13,6 +13,16 @@
 			return $this->render('index');
 		}
 
+		public function searchAction(Request $request) {
+			if ($request->method(Request::METHOD_POST)) {
+				// do the search
+				$query = $request->get('query', '');
+				return $this->render('search/search_results', ['query' => $query]);
+			} else {
+				return $this->render('search/search', ['query' => '']);
+			}
+		}
+
 		public function heartbeatAction(Request $request) {
 			return new JsonResponse([
 				'message' => 'All Good!'

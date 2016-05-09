@@ -4,11 +4,24 @@
 <?=$this->block('body')?>
 	<div class="row">
 		<div class="page-header">
-			<h2>SVE Trades <small>ALL TRADES</small></h2>	
+			<div class="row">
+				<div class="col-md-6">
+					<h2>SVE Trades <small>ALL TRADES</small></h2>
+				</div>
+				<div class="actions col-md-6 text-right">
+					<div class="btn-group" rel="adjust-list-style" data-target="#trade-list">
+						<div data-style="list" class="btn btn-primary"><i class="fa fa-list"></i></div>
+						<div data-style="comfy" class="btn btn-primary"><i class="fa fa-th-large"></i></div>
+						<div data-style="compact" class="btn btn-primary"><i class="fa fa-th"></i></div>
+					</div>
+
+					<a href="<?=$router->generateUrl('search')?>" class="btn btn-success"><i class="fa fa-search"></i></a>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="row">
+	<div id="trade-list" class="row entity-list list">
 		<?php foreach ($trades as $id => $trade) { ?>
 			<?=$this->import('trades/trade', ['trade' => $trade])?>
 		<?php } ?>
