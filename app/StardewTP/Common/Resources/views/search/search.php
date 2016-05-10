@@ -1,5 +1,6 @@
 <?=$this->extend('master')?>
 
+<?=$this->block('title', "Search")?>
 <?=$this->block('body')?>
     <div class="page-header">
         <h2>Search</h2>
@@ -16,9 +17,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 well">
-            <h4 class="alt">Advanced</h4>
-            <p>There are no advanced search options at the moment.</p>
+        <div class="col-md-4">
+            <div class="well">
+                <h4 class="alt">Advanced</h4>
+                <p>There are no advanced search options at the moment.</p> 
+            </div>
         </div>
     </form>
 <?=$this->endBlock()?>

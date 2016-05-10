@@ -22,6 +22,9 @@
 	</div>
 
 	<div id="trade-list" class="row entity-list list">
+		<?php if (count($trades) == 0) { ?>
+			<p class="lead text-center">There's nothing here...</p>
+		<?php } ?>
 		<?php foreach ($trades as $id => $trade) { ?>
 			<?=$this->import('trades/trade', ['trade' => $trade])?>
 		<?php } ?>

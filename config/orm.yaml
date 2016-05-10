@@ -60,6 +60,9 @@ Trade:
         askingPrice:
             column: asking_price
             type: numeric
+        title:
+            column: title
+            type: text
         createdAt:
             column: created_at
             type: timestamp

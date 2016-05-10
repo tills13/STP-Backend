@@ -18,6 +18,7 @@
 		protected $status;
 		protected $seller;
 		protected $items;
+		protected $title;
 		protected $buyer;
 		protected $askingPrice;
 		protected $createdAt;
@@ -87,6 +88,14 @@
 			return $this->status;
 		}
 
+		public function setTitle($title) {
+			$this->title = $title;
+		}
+
+		public function getTitle() {
+			return $this->title;
+		}
+
 		public function is($status) {
 			return $this->getStatus() == $status;
 		}
@@ -98,6 +107,7 @@
 		public function jsonSerialize() {
 			return [
 				'id' => $this->getId(),
+				'title' => $this->getTitle(),
 				'seller' => [
 					'id' => $this->getSeller()->getId(),
 					'username' => $this->getSeller()->getUsername()

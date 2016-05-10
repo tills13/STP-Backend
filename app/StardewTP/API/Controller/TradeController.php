@@ -22,6 +22,7 @@
 			}
 
 			$trade = new Trade();
+			$trade->setTitle($request->body->get('title', null));
 			$trade->setAskingPrice($request->body->get('asking_price'));
 			$trade->setSeller($farmer);
 

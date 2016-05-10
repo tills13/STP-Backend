@@ -254,8 +254,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('fonts/glyphicons-halflings-regular.eot');
+  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -8980,6 +8980,7 @@ form.register-form {
 }
 .entity-list > * {
   float: left;
+  display: inline-block;
   transition-duration: 0.1s;
 }
 .entity-list.compact > * {
@@ -9013,7 +9014,6 @@ form.register-form {
   margin-right: 0px;
 }
 .trade {
-  display: inline-block;
   padding: 10px;
   margin: 10px 0% 15px 0%;
   border-radius: 2px;
@@ -9087,6 +9087,15 @@ form.register-form {
 span.gold {
   color: gold;
   font-weight: bold;
+}
+.quality.gold {
+  color: gold;
+}
+.quality.silver {
+  color: silver;
+}
+.quality.bronze {
+  color: #CD7F32;
 }
 div.header {
   position: relative;

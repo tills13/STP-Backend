@@ -17,7 +17,10 @@
 			if ($request->method(Request::METHOD_POST)) {
 				// do the search
 				$query = $request->get('query', '');
-				return $this->render('search/search_results', ['query' => $query]);
+				return $this->render('search/search_results', [
+					'query' => $query,
+					'results' => []
+				]);
 			} else {
 				return $this->render('search/search', ['query' => '']);
 			}
