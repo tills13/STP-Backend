@@ -10,6 +10,7 @@
 		protected $id;
 		protected $name;
 		protected $username;
+		protected $gold;
 		protected $rawId;
 		protected $createdAt;
 		protected $modifiedAt;
@@ -23,6 +24,14 @@
 
 		public function getCreatedAt() {
 			return $this->createdAt;
+		}
+
+		public function setGold($gold) {
+			$this->gold = $gold;
+		}
+
+		public function getGold() {
+			return $this->gold;
 		}
 
 		public function setId($id) {

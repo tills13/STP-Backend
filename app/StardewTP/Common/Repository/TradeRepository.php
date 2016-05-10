@@ -8,7 +8,7 @@
             $conn = $this->getConnection();
             $query = "
                 SELECT 
-                    t.id,t.asking_price,t.status,t.created_at,t.modified_at,
+                    t.id,t.asking_price,t.status,t.title,t.created_at,t.modified_at,
                     i.name as item, i.image_url as item_image,ti.amount,ti.quality,
                     f.username as buyer, f2.username as seller
                 FROM trade_items ti 
@@ -33,6 +33,7 @@
                     $finalTrades[$id] = [
                         'id' => $id,
                         'asking_price' => $trade['asking_price'],
+                        'title' => $trade['title'],
                         'buyer' => $trade['buyer'],
                         'seller' => $trade['seller'],
                         'items' => [],

@@ -29,17 +29,17 @@
 			</tbody>
 		</table>
 
-		<?php if ($trade->is($trade::STATUS_OPEN) && $session->check()) { ?>
+		<?php if ($trade->is($trade::STATUS_OPEN) && $session->check() && (!$trade->getSeller()->equals($session->getUser()))) { ?>
 			<div class="well">
 				If you'd like to buy these items, hit buy below and the next time you're on your farm, you'll be debited the amount listed and given the items.
 			</div>
 		<?php } ?>
 
 		<div class="row footer">
-			<div class="col-md-6">
+			<div class="col-md-6 col-sm-6">
 				<div class="btn-group">
 					<?php if ($trade->is($trade::STATUS_OPEN) && $session->check() && (!$trade->getSeller()->equals($session->getUser()))) { ?>
-						<a href="" class="btn btn-success">Buy Items</a>
+						<a href="<?=$router->generateUrl('trade:purchase_trade', ['trade' => $trade->getId()])?>" class="btn btn-success">Purchase</a>
 					<?php } ?>
 
 					<?php if ($trade->is($trade::STATUS_OPEN) && ($trade->getSeller()->equals($session->getUser()))) { ?>
@@ -48,7 +48,7 @@
 					<?php } ?>
 				</div>
 			</div>
-			<div class="col-md-6 text-right">
+			<div class="col-md-6 col-sm-6 text-right">
 				<div class="label label-primary cost"><?=$trade->getAskingPrice()?><span class="gold">G</span></div>
 			</div>
 		</div>

@@ -12,6 +12,9 @@ Farmer:
         name:
             column: name
             type: text
+        gold:
+            column: gold
+            type: int
         username:
             column: username
             type: text

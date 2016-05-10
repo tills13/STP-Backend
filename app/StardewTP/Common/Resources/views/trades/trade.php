@@ -1,6 +1,17 @@
 <div class="trade" data-id="<?=$trade['id']?>">
     <a href="<?=$router->generateUrl('trade_overview', ['trade' => $trade['id']])?>">
-        <h3>#<?=$trade['id']?> <span class="alt"><?=$trade['seller']?></span></h3>
+        <?php if ($trade['title'] != null) { ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>#<?=$trade['id']?> <span class="alt"><?=$trade['seller']?></span></h3>
+                </div>
+                <div class="col-md-6 text-right">
+                    <?=$trade['title']?>
+                </div>
+            </div>
+        <?php } else { ?>
+            <h3>#<?=$trade['id']?> <span class="alt"><?=$trade['seller']?></span></h3>
+        <?php } ?>
 
         <hr/>
         

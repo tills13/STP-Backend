@@ -29,4 +29,21 @@
                 ]);
             }
         }
+
+        public function purchaseTradeAction(Request $request, $trade) {
+            $em = $this->getEntityManager();
+            $tradeRepo = $em->getRepository('Trade');
+            $trade = $tradeRepo->get($trade);
+
+            $order = [];
+            $order['trades'][] = $trade;
+
+            if ($request->method('POST')) {
+
+            } else {
+                return $this->render('purchase/summary', [
+                    'order' => $order
+                ]);
+            }
+        }
     }

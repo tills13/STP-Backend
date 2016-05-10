@@ -28,7 +28,7 @@
 
 			$items = [];
 			foreach ($request->body->get('items', []) as $item) { 
-				$items[] = new TradeItem($trade, rand(0, 150), $item['amount'], $item['quality']);
+				$items[] = new TradeItem($trade, $item['id'], $item['amount'], $item['quality']);
 			}
 
 			$trade->setItems($items);

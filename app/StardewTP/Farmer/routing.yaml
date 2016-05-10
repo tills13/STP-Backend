@@ -17,3 +17,7 @@ trade:
             route: /{trade:int}/delete
             controller: Farmer:TradeController
             method: delete
+        purchase_trade:
+            route: /{trade:int}/purchase
+            controller: Farmer:TradeController
+            method: purchaseTrade
