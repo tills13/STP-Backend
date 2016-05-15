@@ -47,3 +47,13 @@ search:
     route: /search
     controller: StardewTPController
     method: search
+
+jobs:
+    route: /jobs
+    controller: JobController
+    method: list
+
+partners:
+    route: /partners
+    controller: PartnerController
+    method: list

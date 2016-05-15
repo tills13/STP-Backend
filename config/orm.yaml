@@ -102,3 +102,71 @@ TradeItem:
         quality:
             column: quality
             type: int
+
+Job:
+    table: jobs
+    keys: [id]
+    fields:
+        id: 
+            column: id
+            type: serial
+        title:
+            column: title
+            type: text
+        description:
+            column: description
+            type: text
+        owner: 
+            targetEntity: Partner
+            join:
+                type: one
+                foreign: id
+                local: owner
+        contractor: 
+            targetEntity: Farmer
+            join:
+                type: one
+                foreign: id
+                local: contractor
+        status:
+            column: status
+            type: text
+        payout: 
+            column: payout
+            type: int
+        createdAt:
+            column: created_at
+            type: timestamp
+        modifiedAt:
+            column: modified_at
+            type: timestamp
+
+
+Partner:
+    table: partners
+    keys: [id]
+    fields:
+        id: 
+            column: id
+            type: serial
+        name:
+            column: name
+            type: text
+        description:
+            column: description
+            type: text
+        logo:
+            column: logo
+            type: text
+        jobs: 
+            targetEntity: Job
+            join:
+                type: many
+                local: id
+                foreign: owner
+        createdAt:
+            column: created_at
+            type: timestamp
+        modifiedAt:
+            column: modified_at
+            type: timestamp

@@ -23,10 +23,11 @@
             </div>
             <div class="collapse navbar-collapse" id="stp-navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/">Trades</a></li>
                     <li><a href="/">Exchange</a></li>
-                    <li><a href="/">Manage your Profile</a></li>
+                    <li><a href="/jobs">Jobs</a></li>
+                    <li><a href="/">Partners</a></li>
                 </ul>
                 <div class="nav navbar-nav navbar-right">
                     <?php if ($session->check()) { ?>
