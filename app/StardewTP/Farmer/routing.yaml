@@ -5,7 +5,7 @@ farmer:
     routes:
         edit_self:
             route: /edit
-            controller: FarmerController
+            controller: Farmer:FarmerController
             method: edit
 
 trade:

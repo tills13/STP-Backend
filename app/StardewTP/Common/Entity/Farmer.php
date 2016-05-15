@@ -14,6 +14,7 @@
 		protected $rawId;
 		protected $createdAt;
 		protected $modifiedAt;
+		protected $lastSync;
 		protected $trades;
 
 		public function __construct() {}
@@ -40,6 +41,10 @@
 
 		public function getId() {
 			return $this->id;
+		}
+
+		public function getLastSync() {
+			return $this->lastSync;
 		}
 
 		public function setModifiedAt(DateTime $modifiedAt) {

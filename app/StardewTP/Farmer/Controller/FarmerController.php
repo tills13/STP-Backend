@@ -10,6 +10,8 @@
 
 	class FarmerController extends Controller {
 		public function editAction(Request $request, Session $session) {
-			return new Response("here");
+            $session->reload();
+            $farmer = $session->getUser();
+			return new Response("Last Sync: " . $farmer->getLastSync()->format('Y-m-d G:i:s'));
 		}
 	}

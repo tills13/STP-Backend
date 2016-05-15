@@ -24,6 +24,9 @@ Farmer:
         modifiedAt:
             column: modified_at
             type: timestamp
+        lastSync:
+            column: last_sync
+            type: timestamp
         trades:
             targetEntity: Trade
             join:

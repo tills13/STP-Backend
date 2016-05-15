@@ -10,8 +10,11 @@
 
     use StardewTP\Common\Entity\Farmer;
 
+    /**
+     * The generic catch-all for API related functions
+     */
 	class APIController extends Controller {
-		public function initializeAction(Request $request) {
+		public function syncAction(Request $request) {
 			$name = $request->body->get('Name', false);
 			$uniqueId = $request->body->get('UniqueId', false);
 
@@ -32,13 +35,15 @@
 				$farmer->setName($name);
 				$farmer->setId("{$uniqueId}_{$name}");
 				$farmer->setRawId($uniqueId);
-
-				$farmer = $em->persist($farmer);
-				$farmer = $farmerRepo->get("{$uniqueId}_{$name}");
-				//$farmer = $em->reload($farmer);
 			} else {
 				$firstTime = false;
 			}
+
+			$gold = $request->body->get('Gold');
+			$farmer->setGold($gold);
+
+			$farmer = $em->persist($farmer);
+			$farmer = $farmerRepo->get("{$uniqueId}_{$name}");
 
 			return new JsonResponse([
 				'farmer' => $farmer,

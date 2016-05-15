@@ -2,11 +2,11 @@ api:
     type: group
     route: /api
     routes: 
-        initialize:
-            route: /initialize
+        sync:
+            route: /sync
             controller: APIController
-            method: initialize
-            methods: [get, post]
+            method: sync
+            methods: [get,post]
         new_trade:
             route: /trade/new
             controller: API:TradeController

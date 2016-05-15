@@ -2,7 +2,7 @@
 <html>
 	<?=$this->import('head')?>
 	<body>
-        <?=$this->import('header')?>
+        <div class="hide"><?=$this->import('header')?></div>
         
         <div class="center container-fluid">
             <?=$this->embed('body')?>

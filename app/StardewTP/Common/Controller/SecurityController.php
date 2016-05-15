@@ -38,8 +38,7 @@
             		$result = $repo->find(['username' => $username]);
                     if (!empty($result)) {
                         $session->setUser($result[0]);
-
-                        return new RedirectResponse($this->generateUrl('index'));
+                        return new RedirectResponse("/");
                     } else {
                         throw new \Exception("Incorrect login...");
                     }
@@ -102,7 +101,7 @@
                         $farmer = $repo->get($id);
                         $session->setUser($farmer);
 
-                        return new RedirectResponse('index');
+                        return new RedirectResponse("/");
                     } catch (\PDOException $e) {
 
                     }

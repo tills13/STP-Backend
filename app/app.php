@@ -4,7 +4,7 @@
 
     use Sebastian\Kernel;
 
-    $app = new Kernel("local_dev");
+    $app = new Kernel("dev");
     $response = $app->run();
     $response->send();
     
