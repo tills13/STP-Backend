@@ -36,6 +36,7 @@
 
                 if ($repo->login($username, $password)) {
             		$result = $repo->find(['username' => $username]);
+                    
                     if (!empty($result)) {
                         $session->setUser($result[0]);
                         return new RedirectResponse("/");
@@ -103,7 +104,7 @@
 
                         return new RedirectResponse("/");
                     } catch (\PDOException $e) {
-
+                        var_dump($e);
                     }
                 }
             }

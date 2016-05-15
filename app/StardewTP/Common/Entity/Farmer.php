@@ -10,6 +10,7 @@
 		protected $id;
 		protected $name;
 		protected $username;
+		protected $isAdmin;
 		protected $gold;
 		protected $rawId;
 		protected $createdAt;
@@ -31,8 +32,8 @@
 			$this->gold = $gold;
 		}
 
-		public function getGold() {
-			return $this->gold;
+		public function getGold($formatted = false) {
+			return $formatted ? number_format($this->gold) : $this->gold;
 		}
 
 		public function setId($id) {
@@ -41,6 +42,14 @@
 
 		public function getId() {
 			return $this->id;
+		}
+
+		public function setIsAdmin($isAdmin) {
+			$this->isAdmin = $isAdmin;
+		}
+
+		public function getIsAdmin() {
+			return $this->isAdmin;
 		}
 
 		public function getLastSync() {
@@ -88,7 +97,7 @@
 		}
 
 		public function isAdmin() {
-			return false;
+			return $this->isAdmin;
 		}
 
 		public function equals(Farmer $farmer = null) {

@@ -11,7 +11,7 @@
         protected $name;
         protected $description;
         protected $logo;
-        protected $jobs;
+        protected $contracts;
         protected $createdAt;
         protected $modifiedAt;
 
@@ -41,12 +41,12 @@
             return $this->id;
         }
 
-        public function setJobs(array $jobs) {
-            $this->jobs = $jobs;
+        public function setContracts(array $contracts) {
+            $this->contracts = $contracts;
         }
 
-        public function getJobs() {
-            return $this->jobs;
+        public function getContracts() {
+            return $this->contracts;
         }
 
         public function setLogo($logo) {
@@ -83,7 +83,7 @@
                 'name' => $this->getName(),
                 'description' => $this->getDescription(),
                 'logo' => $this->getLogo(),
-                'jobs' => $this->getJobs(),
+                'contracts' => $this->getContracts(),
                 'created_at' => $this->getCreatedAt(),
                 'modified_at' => $this->getModifiedAt()
             ];

@@ -53,7 +53,17 @@ jobs:
     controller: JobController
     method: list
 
+
+
 partners:
+    type: group
     route: /partners
-    controller: PartnerController
-    method: list
+    routes: 
+        list:
+            route: ~
+            controller: PartnerController
+            method: list
+        overview:
+            route: /{partner:int}
+            controller: PartnerController
+            method: overview

@@ -9,13 +9,17 @@
 		public function listAction(Request $request) {
 			$page = $request->get('page', 0);
 			$limit = $request->get('limit', 10);
-
 			$offset = $page * $limit;
 
 			$em = $this->getEntityManager();
 			$repo = $em->getRepository('Trade');
 
-			$trades = $repo->getAllTrades($limit, $offset, ['id' => 'desc']);
+			//$trades = $repo->getAllTrades($limit, $offset, ['id' => 'desc']);
+			$trades = $repo->find(null, [
+				'orderBy' => ['id' => 'desc'],
+				'limit' => $limit,
+				'offset' => $offset
+			]);
 
 			return $this->render('trades/list', [
 				'trades' => $trades,

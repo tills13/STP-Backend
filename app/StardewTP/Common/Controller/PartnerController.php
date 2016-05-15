@@ -22,6 +22,12 @@
         }
 
         public function overviewAction(Request $request, $partner) {
+            $em = $this->getEntityManager();
+            $repo = $em->getRepository('Partner');
+            $partner = $repo->get($partner);
 
+            return $this->render('partners/overview', [
+                'partner' => $partner
+            ]);
         }
     }

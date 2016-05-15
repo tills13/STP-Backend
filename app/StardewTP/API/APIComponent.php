@@ -10,7 +10,7 @@
 			parent::__construct($context, $name, $config);
 
 			$this->setRoutePrefix('api');
-			$this->setWeight(0);
+			$this->setWeight(100);
 		}
 
 		public function checkRequirements(ContextInterface $context) {

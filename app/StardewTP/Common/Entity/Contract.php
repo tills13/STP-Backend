@@ -8,7 +8,7 @@
     use \JsonSerializable;
     use \DateTime;
 
-    class Job implements EntityInterface,JsonSerializable {
+    class Contract implements EntityInterface,JsonSerializable {
         const STATUS_OPEN = "open";
         const STATUS_PENDING = "pending";
         const STATUS_RETURNING = "returning";
@@ -26,7 +26,7 @@
         protected $modifiedAt;
 
         public function __construct() {
-            $this->status = Job::STATUS_OPEN;
+            $this->status = Contract::STATUS_OPEN;
         }
 
         public function setContractor(Farmer $contractor) {
@@ -77,8 +77,8 @@
             $this->payout = $payout;
         }
 
-        public function getPayout() {
-            return $this->payout;
+        public function getPayout($formatted = false) {
+            return $formatted ? number_format($this->payout) : $this->payout;
         }
 
         public function setStatus($status) {
@@ -101,8 +101,8 @@
             return $this->getStatus() == $status;
         }
 
-        public function equals(Job $trade) {
-            return $trade ? ($this->getId() == $trade->getId()) : false;
+        public function equals(Contract $contract) {
+            return $contract ? ($this->getId() == $contract->getId()) : false;
         }
 
         public function jsonSerialize() {

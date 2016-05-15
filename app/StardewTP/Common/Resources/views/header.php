@@ -27,13 +27,13 @@
                     <li><a href="/">Trades</a></li>
                     <li><a href="/">Exchange</a></li>
                     <li><a href="/jobs">Jobs</a></li>
-                    <li><a href="/">Partners</a></li>
+                    <li><a href="/partners">Partners</a></li>
                 </ul>
                 <div class="nav navbar-nav navbar-right">
                     <?php if ($session->check()) { ?>
                     	<span class="navbar-text">
                     		Welcome, <a class="b u" href="<?=$router->generateUrl('farmer:edit_self')?>"><?=$session->getUser()->getUsername()?></a>
-                            <span class="label label-primary label-lg"><?=$session->getUser()->getGold()?><span class="gold">G</span></span>
+                            <span class="label label-primary label-lg"><?=$session->getUser()->getGold(true)?><span class="gold">G</span></span>
                     	</span>
                         <a class="btn navbar-btn btn-default" href="<?=$router->generateUrl('logout')?>">Logout</a>
                     <?php } else { ?>

@@ -25,6 +25,7 @@
 				new Common\CommonComponent($this, "Common"),
 				new API\APIComponent($this, "API"),
 				new Farmer\FarmerComponent($this, "Farmer"),
+				new Admin\AdminComponent($this, "Admin"),
 				new SebastianExtraComponent($this, "Extra", $config->sub('components.sebastian_extra')),
 				new InternalComponent($this, "Internal", $config->sub('components.sebastian_internal'))
 			]);

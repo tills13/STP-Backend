@@ -1,8 +1,8 @@
 <div class="item">
     <span class="quantity">
-        <?=$item['amount']?>
-        <i class="fa fa-star quality <?=['bronze','silver','gold'][$item['quality']]?>"></i>
+        <?=$item->getAmount()?>
+        <i class="fa fa-star quality <?=['bronze','silver','gold'][$item->getQuality()]?>"></i>
     </span>
-    <img src="<?=$item['image']?>" width="40px" height="40px">
-    <div class="description"><?=$item['item']?></div>
+    <img src="<?=$item->getItem()['image_url']?>" width="40px" height="40px">
+    <div class="description"><?=$item->getItem()['name']?></div>
 </div>

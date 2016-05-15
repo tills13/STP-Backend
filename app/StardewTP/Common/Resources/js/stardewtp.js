@@ -29,7 +29,10 @@ stp.prototype = {
             var group = button.parent('.btn-group');
             var style = button.data('style');
             var target = $(group.data('target'));
+            var active = group.find('.active');
 
+            active.removeClass('active');
+            button.addClass('active');
             target.addClass(style);
             target.removeClass(_.difference(['list','comfy','compact'], [style]).join(" "));
         });

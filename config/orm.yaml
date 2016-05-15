@@ -18,6 +18,9 @@ Farmer:
         username:
             column: username
             type: text
+        isAdmin:
+            column: is_admin
+            type: boolean
         createdAt:
             column: created_at
             type: timestamp
@@ -103,8 +106,8 @@ TradeItem:
             column: quality
             type: int
 
-Job:
-    table: jobs
+Contract:
+    table: contracts
     keys: [id]
     fields:
         id: 
@@ -141,7 +144,6 @@ Job:
             column: modified_at
             type: timestamp
 
-
 Partner:
     table: partners
     keys: [id]
@@ -158,8 +160,8 @@ Partner:
         logo:
             column: logo
             type: text
-        jobs: 
-            targetEntity: Job
+        contracts: 
+            targetEntity: Contract
             join:
                 type: many
                 local: id

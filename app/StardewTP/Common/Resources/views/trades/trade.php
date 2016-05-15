@@ -1,23 +1,21 @@
-<div class="trade" data-id="<?=$trade['id']?>">
-    <a href="<?=$router->generateUrl('trade_overview', ['trade' => $trade['id']])?>">
-        <?php if ($trade['title'] != null) { ?>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>#<?=$trade['id']?> <span class="alt"><?=$trade['seller']?></span></h3>
-                </div>
-                <div class="col-md-6 text-right">
-                    <?=$trade['title']?>
-                </div>
+<div class="trade entity" data-id="<?=$trade->getId()?>">
+    <a href="<?=$router->generateUrl('trade_overview', ['trade' => $trade->getId()])?>">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>#<?=$trade->getId()?> <span class="alt"><?=$trade->getSeller()->getUsername()?></span></h3>
             </div>
-        <?php } else { ?>
-            <h3>#<?=$trade['id']?> <span class="alt"><?=$trade['seller']?></span></h3>
-        <?php } ?>
+            <?php if ($trade->getTitle() != null) { ?>
+                <div class="col-md-6 text-right">
+                    <?=$trade->getTitle()?>
+                </div>
+            <?php } ?>
+        </div>
 
         <hr/>
-        
+
         <div class="row">
             <div class="col-md-12">
-                <?php foreach ($trade['items'] as $item) { ?>
+                <?php foreach ($trade->getItems() as $item) { ?>
                     <?=$this->import('trades/items/item', ['item' => $item])?>
                 <?php } ?>
             </div>
@@ -26,7 +24,7 @@
         <div class="footer row">
             <div class="col-md-12 text-right">
                 <div class="cost label label-primary">
-                    <?=$trade['asking_price']?><span class="gold">G</span>
+                    <?=$trade->getAskingPrice()?><span class="gold">G</span>
                 </div>
             </div>
         </div>

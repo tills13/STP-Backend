@@ -8981,40 +8981,100 @@ form.register-form {
   width: 500px;
   margin: 10% auto;
 }
-.entity-list > * {
+.entity-list > .entity {
   float: left;
   display: inline-block;
   transition-duration: 0.1s;
+  padding: 10px;
+  margin: 10px 0% 15px 0%;
+  border-radius: 2px;
+  border: 1px solid #CACACA;
+  -moz-box-shadow: inset 0 -2px 0 #CACACA;
+  -webkit-box-shadow: inset 0 -2px 0 #CACACA;
+  box-shadow: inset 0 -2px 0 #CACACA;
+  text-decoration: none;
 }
-.entity-list.compact > * {
+.entity-list > .entity:hover {
+  border: 1px solid #979797;
+  -moz-box-shadow: inset 0 -2px 0 #979797;
+  -webkit-box-shadow: inset 0 -2px 0 #979797;
+  box-shadow: inset 0 -2px 0 #979797;
+}
+.entity-list > .entity .header {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.entity-list > .entity .header h1,
+.entity-list > .entity .header h2,
+.entity-list > .entity .header h3 {
+  margin: 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.entity-list > .entity hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.entity-list > .entity .footer .label {
+  padding: .5em 1.2em .45em;
+  font-size: 100%;
+}
+.entity-list > .empty {
+  width: 100%;
+}
+.entity-list.compact > *:not(.empty) {
   width: 32%;
   margin-left: 0px;
   margin-right: 0px;
 }
-.entity-list.compact > *:nth-child(3n + 1) {
+.entity-list.compact > *:not(.empty):nth-child(3n + 1) {
   margin-right: 1%;
 }
-.entity-list.compact > *:nth-child(3n + 2) {
+.entity-list.compact > *:not(.empty):nth-child(3n + 2) {
   margin-left: 1%;
   margin-right: 1%;
 }
-.entity-list.compact > *:nth-child(3n) {
+.entity-list.compact > *:not(.empty):nth-child(3n) {
   margin-left: 1%;
 }
-.entity-list.comfy > * {
+.entity-list.comfy > *:not(.empty) {
   width: 49%;
 }
-.entity-list.comfy > *:nth-child(odd) {
+.entity-list.comfy > *:not(.empty):nth-child(odd) {
   margin-right: 1%;
 }
-.entity-list.comfy > *:nth-child(even) {
+.entity-list.comfy > *:not(.empty):nth-child(even) {
   margin-left: 1%;
 }
-.entity-list.list > * {
+.entity-list.list > *:not(.empty) {
   width: 100%;
   float: none;
   margin-left: 0px;
   margin-right: 0px;
+}
+.logo-header > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.logo-header h1,
+.logo-header h2,
+.logo-header h3 {
+  margin: 0px;
+  line-height: inherit;
+}
+.logo-header.logo-small {
+  line-height: 50px;
+}
+.logo-header.logo-small img.logo {
+  margin-right: 10px;
+}
+img.logo {
+  border-radius: 2px;
+  display: inline-block;
+}
+img.logo.small {
+  width: 50px;
+  height: 50px;
 }
 .trade {
   padding: 10px;
@@ -9087,16 +9147,6 @@ form.register-form {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   color: #909090;
 }
-.partner {
-  padding: 10px;
-  margin: 10px 0% 15px 0%;
-  border-radius: 2px;
-  border: 1px solid #CACACA;
-  -moz-box-shadow: inset 0 -2px 0 #CACACA;
-  -webkit-box-shadow: inset 0 -2px 0 #CACACA;
-  box-shadow: inset 0 -2px 0 #CACACA;
-  text-decoration: none;
-}
 .partner .header > * {
   vertical-align: top;
 }
@@ -9120,6 +9170,15 @@ form.register-form {
   border-radius: 2px;
   background-color: slategrey;
   color: white;
+}
+.partner-overview {
+  margin: 20px 0px;
+}
+.partner-overview .info img {
+  border-radius: 2px;
+}
+.partner-overview .info .page-header {
+  margin-top: 0px;
 }
 span.gold {
   color: gold;
@@ -9322,6 +9381,49 @@ body > div.header .navbar .btn:hover {
   -moz-box-shadow: inset 0 -4px 0 #5eb755;
   -webkit-box-shadow: inset 0 -4px 0 #5eb755;
   box-shadow: inset 0 -4px 0 #5eb755;
+}
+body > div.footer {
+  margin-bottom: 25px;
+}
+body > div.footer .location > * {
+  vertical-align: top;
+}
+body > div.footer .location > .info h3 {
+  display: inline-block;
+  margin-top: 0px;
+}
+body > div.footer .location > .info p {
+  text-align: right;
+}
+body > div.footer .location .map-container {
+  position: relative;
+}
+body > div.footer .location .map-container img.map {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 2px;
+  z-index: 1;
+}
+body > div.footer .location .map-container div.screen {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+body > div.footer .location .map-container div.screen .fa-location-arrow {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  margin-top: -25px;
+  width: 100%;
+  font-size: 50px;
+  color: white;
+  line-height: 50px;
 }
 .btn {
   padding-bottom: 10px;

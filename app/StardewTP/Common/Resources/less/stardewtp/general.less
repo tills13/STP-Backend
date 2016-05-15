@@ -5,14 +5,48 @@ form.register-form {
 }
 
 .entity-list {
-    > * {
+    > .entity {
         float: left; 
         display: inline-block;
         transition-duration: 0.1s;
+
+        padding: 10px;
+        margin: 10px 0% 15px 0%;
+
+        border-radius: @border-radius;
+        border: 1px solid #CACACA;
+        .box-shadow(~'inset 0 -2px 0 #CACACA');
+        text-decoration: none;
+
+        &:hover {
+            border: 1px solid darken(#CACACA, 20%);
+            .box-shadow(inset 0 -2px 0 darken(#CACACA, 20%));
+        }
+
+        .header {
+            white-space: nowrap;
+            overflow: hidden;
+            h1,h2,h3 { 
+                margin: 0px; 
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        hr { margin-top: 10px; margin-bottom: 10px; }
+
+        .footer {
+           .label {
+                padding: .5em 1.2em .45em;
+                font-size: 100%;
+            } 
+        }
     }
 
+    > .empty { width: 100%; }
+
     &.compact {
-        > * { 
+        > *:not(.empty) { 
             width: 32%;
             margin-left: 0px;
             margin-right: 0px;
@@ -29,7 +63,7 @@ form.register-form {
     }
 
     &.comfy {
-        > * { 
+        > *:not(.empty) { 
             width: 49%;
 
             &:nth-child(odd) { margin-right: 1%; }
@@ -38,7 +72,7 @@ form.register-form {
     }
 
     &.list {
-        > * {
+        > *:not(.empty) {
             width: 100%;
             float: none;
             margin-left: 0px;
@@ -46,6 +80,33 @@ form.register-form {
         }
     }
 }
+
+.logo-header {
+    > * { display: inline-block; vertical-align: top; }
+    h1,h2,h3 { margin: 0px; line-height: inherit; }
+
+    &.logo-small {
+        img.logo {
+            margin-right: 10px;
+        }
+
+        line-height: 50px;
+    }
+}
+
+img.logo {
+    border-radius: @border-radius;
+    display: inline-block;
+
+    &.small {
+        width: 50px; height: 50px;
+    }
+}
+
+
+
+
+
 
 .trade {
     padding: 10px;
@@ -118,14 +179,6 @@ form.register-form {
 }
 
 .partner {
-    padding: 10px;
-    margin: 10px 0% 15px 0%;
-
-    border-radius: @border-radius;
-    border: 1px solid #CACACA;
-    .box-shadow(~'inset 0 -2px 0 #CACACA');
-    text-decoration: none;
-
     .header {
         > * { vertical-align: top; }
         img {
@@ -152,8 +205,16 @@ form.register-form {
         background-color: slategrey;
         color: white;
     }
+}
 
-    &:hover {
+.partner-overview {
+    margin: 20px 0px;
+
+    .info {
+        img { border-radius: @border-radius; }
+        .page-header {
+            margin-top: 0px;
+        }
     }
 }
 

@@ -32,8 +32,8 @@
 			$this->askingPrice = $askingPrice;
 		}
 
-		public function getAskingPrice() {
-			return $this->askingPrice;
+		public function getAskingPrice($formatted = false) {
+			return $formatted ? number_format($this->askingPrice) : $this->askingPrice;
 		}
 
 		public function setBuyer(Farmer $farmer) {
