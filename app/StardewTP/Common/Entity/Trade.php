@@ -108,6 +108,8 @@
 			return [
 				'id' => $this->getId(),
 				'title' => $this->getTitle(),
+				'status' => $this->getStatus(),
+				'askingPrice' => $this->getAskingPrice(),
 				'seller' => [
 					'id' => $this->getSeller()->getId(),
 					'username' => $this->getSeller()->getUsername()
