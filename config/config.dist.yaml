@@ -3,7 +3,7 @@ application:
     namespace: StardewTP
     app_class: StardewTP
     debug: false
-
+    
 logging:
     message_format: "{date} [{level}{tag}] {message}"
     date_format: "m-d G:i:s"
@@ -56,3 +56,7 @@ components:
                     entity: Common:Entity\Settings
                 TradeItem:
                     entity: Common:Entity\TradeItem
+                Partner:
+                    entity: Common:Entity\Partner
+                Contract:
+                    entity: Common:Entity\Contract

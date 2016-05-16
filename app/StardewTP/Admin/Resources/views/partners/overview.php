@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="lead"><?=$partner->getDescription() ?: "No description provided"?></p>
+                <p class="lead"><?=nl2br($partner->getDescription()) ?: "No description provided"?></p>
             </div>
         </div>
         <div class="row">

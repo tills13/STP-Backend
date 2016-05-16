@@ -2,10 +2,8 @@
     define('APP_ROOT', __DIR__);
     require_once(__DIR__ . '/../vendor/autoload.php');
 
-    use Sebastian\Kernel;
-
-    $app = new Kernel("dev");
-    $response = $app->run();
+    $kernel = new StardewTP\AppKernel("dev");
+    $response = $kernel->run();
     $response->send();
     
-    $app->shutdown($response);
+    $kernel->shutdown($response);

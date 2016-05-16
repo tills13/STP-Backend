@@ -24,17 +24,4 @@ api:
             controller: API:FarmerController
             method: getFarmers
 
-partner:
-    type: group
-    route: /partners
-    routes: 
-        new_contract: 
-            route: /{partner:int}/new_contract
-            controller: Admin:PartnerController
-            method: newContract
-        edit: 
-            route: /{partner:int}/edit
-            controller: Admin:PartnerController
-            method: newContract
-
 

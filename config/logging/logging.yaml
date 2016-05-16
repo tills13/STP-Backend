@@ -1,0 +1,16 @@
+message_format: "{date} [{level}{tag}] {message}"
+date_format: "m-d G:i:s"
+threshold: INFO
+handlers:
+    default:
+        type: file
+        filename: "{app_name}_{name}"
+        threshold: INFO
+    orm_log:
+        type: file
+        filename: "orm_{date}"
+        restricted: true # only explicit requests to log with this handler
+    db_log:
+        type: file
+        filename: "db_{date}"
+        restricted: true
