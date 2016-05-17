@@ -9,18 +9,18 @@
             <div class="col-md-8">
                 <div class="page-header">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <h2><?=$partner->getName()?></h2>
-                        </div>
-                        <div class="col-md-6 actions text-right">
-                            <div class="btn-group">
-                                <a class="btn btn-success" href="<?=$router->generateUrl('partner:edit', ['partner' => $partner->getId()])?>">Edit Partner</a>
-                                <a class="btn btn-success" href="<?=$router->generateUrl('partner:new_contract', ['partner' => $partner->getId()])?>">New Contract</a>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <p class="lead"><?=nl2br($partner->getDescription()) ?: "No description provided"?></p>
+                <div class="text-right">
+                    <div class="btn-group">
+                        <a class="btn btn-success" href="<?=$router->generateUrl('partner:edit', ['partner' => $partner->getId()])?>">Edit Partner</a>
+                        <a class="btn btn-success" href="<?=$router->generateUrl('partner:new_contract', ['partner' => $partner->getId()])?>">New Contract</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
