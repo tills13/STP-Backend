@@ -1,19 +1,21 @@
 <?php
-    namespace StardewTP\Common\Entity;
+    namespace StardewTP\Common\Model;
 
-    use Sebastian\Core\Entity\UserInterface;
-    use Sebastian\Core\Entity\EntityInterface;
+    use Sebastian\Core\Model\UserInterface;
+    use Sebastian\Core\Model\EntityInterface;
     use \JsonSerializable;
     use \DateTime;
 
     class Partner implements EntityInterface,JsonSerializable {
-        protected $id;
-        protected $name;
-        protected $description;
-        protected $logo;
         protected $contracts;
         protected $createdAt;
+        protected $description;
+        protected $id;
+        protected $isApproved;
+        protected $isEnabled;
+        protected $logo;
         protected $modifiedAt;
+        protected $name;
 
         public function __construct() {}
 
@@ -33,12 +35,28 @@
             return $this->description;
         }
 
+        public function setIsEnabled($isEnabled) {
+            $this->isEnabled = $isEnabled;
+        }
+
+        public function getIsEnabled() {
+            return $this->isEnabled;
+        }
+
         public function setId($id) {
             $this->id = $id;
         }
 
         public function getId() {
             return $this->id;
+        }
+
+        public function setIsApproved($isApproved) {
+            $this->isApproved = $isApproved;
+        }
+
+        public function getIsApproved() {
+            return $this->isApproved;
         }
 
         public function setContracts(array $contracts) {

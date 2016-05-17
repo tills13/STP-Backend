@@ -38,11 +38,19 @@
 }
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-    .center { width: 100%; }
+    .center { width: 80%; }
+    
+    body > div.footer {
+        .map-container {
+            img.map {
+                max-width: none !important;
+            }
+        }
+    }
 }
 
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-    .center { width: 80%; }
+    //.center { width: 80%; }
 }
 
 @media (min-width: @screen-lg-min) {

@@ -2,10 +2,10 @@
     <div class="col-md-12">
         <hr/>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
                 
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
                 <div class="row location">
                     <div class="col-md-6 info text-right">
                         <h3>Where to Find Us</h3>

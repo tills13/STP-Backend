@@ -1,9 +1,7 @@
 <?php
-	namespace StardewTP\Common\Entity;
+	namespace StardewTP\Common\Model;
 
-	use StardewTP\Common\Entity\Farmer; // to be explicit
-
-	use Sebastian\Core\Entity\EntityInterface;
+	use Sebastian\Core\Model\EntityInterface;
 	use \JsonSerializable;
 	use \DateTime;
 

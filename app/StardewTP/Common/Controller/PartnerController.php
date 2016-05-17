@@ -11,7 +11,10 @@
         public function listAction(Request $request) {
             $em = $this->getEntityManager();
             $repo = $em->getRepository('Partner');
-            $partners = $repo->find(null, ['orderBy' => ['id' => 'asc', 'name' => 'desc']]);
+            $partners = $repo->find([
+                'isEnabled' => true,
+                'isApproved' => true
+            ], ['orderBy' => ['id' => 'asc', 'name' => 'desc']]);
 
             //return new JsonResponse(['partners' => $partners]);
             //$partners = $repo->getAllPartners();

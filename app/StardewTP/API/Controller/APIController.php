@@ -8,7 +8,7 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
-    use StardewTP\Common\Entity\Farmer;
+    use StardewTP\Common\Model\Farmer;
 
     /**
      * The generic catch-all for API related functions

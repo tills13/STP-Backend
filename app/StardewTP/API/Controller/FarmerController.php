@@ -9,7 +9,7 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
-    use StardewTP\Common\Entity\Farmer;
+    use StardewTP\Common\Model\Farmer;
 
 	class FarmerController extends Controller {
 		public function overviewAction(Request $request, $farmer) {

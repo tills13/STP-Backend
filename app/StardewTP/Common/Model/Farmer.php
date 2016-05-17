@@ -1,8 +1,8 @@
 <?php
-	namespace StardewTP\Common\Entity;
+	namespace StardewTP\Common\Model;
 
-	use Sebastian\Core\Entity\UserInterface;
-	use Sebastian\Core\Entity\EntityInterface;
+	use Sebastian\Core\Model\UserInterface;
+	use Sebastian\Core\Model\EntityInterface;
 	use \JsonSerializable;
 	use \DateTime;
 

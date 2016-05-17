@@ -17,6 +17,15 @@
                 <div class="form-group">
                     <?=$form->get('logo')->render()?>
                 </div>
+                <h3>Other Options</h3>
+                <div class="form-group">
+                    <label for="<?=$form->get('is_approved')->getId()?>">Approved</label>
+                    <?=$form->get('is_approved')->render()?>
+                </div>
+                <div class="form-group">
+                    <label for="<?=$form->get('is_enabled')->getId()?>">Enabled</label>
+                    <?=$form->get('is_enabled')->render()?>
+                </div>
                 <div class="text-right">
                     <div class="btn-group">
                         <input class="btn btn-success" type="submit"/>

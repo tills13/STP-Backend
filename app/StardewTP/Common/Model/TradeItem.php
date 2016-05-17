@@ -1,9 +1,9 @@
 <?php
-	namespace StardewTP\Common\Entity;
+	namespace StardewTP\Common\Model;
 
+	use Sebastian\Core\Model\EntityInterface;
 	use \JsonSerializable;
-
-	use Sebastian\Core\Entity\EntityInterface;
+	use \DateTime;
 
 	class TradeItem implements EntityInterface,JsonSerializable {
 		protected $id;

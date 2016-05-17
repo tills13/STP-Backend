@@ -8,8 +8,8 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
-    use StardewTP\Common\Entity\Trade;
-    use StardewTP\Common\Entity\TradeItem;
+    use StardewTP\Common\Model\Trade;
+    use StardewTP\Common\Model\TradeItem;
 
 	class TradeController extends Controller {
 		public function newAction(Request $request, Session $session) {

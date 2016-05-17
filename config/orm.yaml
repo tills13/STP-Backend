@@ -160,6 +160,13 @@ Partner:
         logo:
             column: logo
             type: text
+        isApproved:
+            column: is_approved
+            type: boolean
+            #default: false # todo
+        isEnabled:
+            column: is_enabled
+            type: boolean
         contracts: 
             targetEntity: Contract
             join:

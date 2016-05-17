@@ -6,7 +6,8 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Utility\Utility\Utils;
 
-    use StardewTP\Common\Entity\Contract;
+    use StardewTP\Common\Model\Contract;
+    use StardewTP\Common\Model\Partner;
 
     class PartnerController extends \StardewTP\Common\Controller\PartnerController {
         public function newContractAction(Request $request, $partner) {
@@ -18,6 +19,7 @@
             $formBuilder->create('new_contract_form')
                     ->method("POST")
                     ->attribute('class', '')
+                    ->bind(Partner::class, $em)
                     ->add('title', 'text', [
                         'id' => 'title',
                         'class' => 'form-control',
@@ -66,48 +68,25 @@
             $partner = $repo->get($partner);
 
             $formBuilder = $this->getFormBuilder();
-            $formBuilder->create('new_contract_form')
-                    ->method("POST")
-                    ->attribute('class', '')
-                    ->add('name', 'text', [
-                        'id' => 'name',
-                        'class' => 'form-control',
-                        'placeholder' => 'Name'
-                    ])->add('description', 'textarea', [
-                        'id' => 'description',
-                        'class' => 'form-control',
-                        'rows' => 7,
-                        'placeholder' => 'Description'
-                    ])->add('logo', 'text', [
-                        'id' => 'logo',
-                        'class' => 'form-control',
-                        'placeholder' => 'Logo'
-                    ]);
+            $formBuilder->load('Admin:partners/edit_partner')
+                        ->bind(Partner::class, $em);
 
             $form = $formBuilder->getForm();
             $form->bindModel($partner);
+            $form->handleRequest($request);
 
-            if ($request->method('POST')) {
-                $form->handleRequest($request);
-                
-                $name = $form->get('name')->getValue();
-                $description = $form->get('description')->getValue();
-                $logo = $form->get('logo')->getValue();
-
-                $partner->setName($name);
-                $partner->setDescription($description);
-                $partner->setLogo($logo);
-
+            if ($request->method('POST') && $form->isValid()) {
+                $partner = $form->getData();
                 $em->persist($partner);
 
                 return new RedirectResponse($this->generateUrl('partners:overview', [
                     'partner' => $partner->getId()
                 ]));
-            } else {
-                return $this->render('partners/edit', [
-                    'partner' => $partner,
-                    'form' => $form
-                ]);
             }
+
+            return $this->render('partners/edit', [
+                'partner' => $partner,
+                'form' => $form
+            ]);
         } 
     }

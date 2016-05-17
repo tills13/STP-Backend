@@ -3,10 +3,15 @@
 <?=$this->block('body')?>
     <div class="partner-overview">
         <div class="row info">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4">
                 <img src="<?=$partner->getLogo()?>" width="100%">
+                <hr/>
+                <div class="btn-group full">
+                    <a class="btn btn-primary" href="<?=$router->generateUrl('partner:edit', ['partner' => $partner->getId()])?>">Edit</a>
+                    <a class="btn btn-success" href="<?=$router->generateUrl('partner:new_contract', ['partner' => $partner->getId()])?>">New Contract</a>
+                </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8">
                 <div class="page-header">
                     <div class="row">
                         <div class="col-md-12">
@@ -15,12 +20,6 @@
                     </div>
                 </div>
                 <p class="lead"><?=nl2br($partner->getDescription()) ?: "No description provided"?></p>
-                <div class="text-right">
-                    <div class="btn-group">
-                        <a class="btn btn-success" href="<?=$router->generateUrl('partner:edit', ['partner' => $partner->getId()])?>">Edit Partner</a>
-                        <a class="btn btn-success" href="<?=$router->generateUrl('partner:new_contract', ['partner' => $partner->getId()])?>">New Contract</a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row">
