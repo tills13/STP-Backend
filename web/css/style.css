@@ -9503,17 +9503,31 @@ a.u {
 a.b {
   font-weight: bold;
 }
-@media (min-width: 1200px) {
-  .center {
-    width: 80%;
-  }
-}
 @media (max-width: 768px) {
   .center {
     width: auto;
   }
-  .header {
+  body > div.header {
+    height: auto;
+    background: #2b303b;
+  }
+  body > div.header .hero {
     display: none;
+  }
+  body > div.header .navbar {
+    position: relative;
+  }
+  body > div.header .navbar .navbar-right {
+    display: none;
+  }
+  .page-header > .row .actions {
+    display: none;
+  }
+  .entity-list > .entity {
+    width: 100% !important;
+  }
+  body > div.footer .map-container img.map {
+    max-width: none !important;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -9523,6 +9537,6 @@ a.b {
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   .center {
-    width: 100%;
+    width: 80%;
   }
 }

@@ -2,12 +2,12 @@
     <div class="screen"></div>
     <div class="hero row-fluid">
     	<h2 class="spinner row">
-    		<div class="words col-md-6 col-sm-6">
+    		<div class="words col-md-6 col-sm-6 col-xs-6">
     			<b style="display: inline-block;">Empowering</b>
     			<b>Connecting</b>
     			<b>Helping</b>
     		</div>
-    		<div class="col-md-6 col-sm-6">Farmers</div>
+    		<div class="col-md-6 col-sm-6 col-xs-6">Farmers</div>
     	</h2>
     </div>
     <div class="center navbar navbar-fixed-bottom navbar-absolute-bottom">
