@@ -6,10 +6,10 @@
 
 <div class="page-header">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-6">
             <h2><?=$title?></h2>
         </div>
-        <div class="actions col-md-6 text-right">
+        <div class="actions col-md-6 col-sm-6 text-right">
             <div class="btn-group" rel="adjust-list-style" data-target="#<?=$target?>">
                 <div data-style="comfy" class="btn btn-primary <?=(($listStyle == "comfy") ? " active" : "")?>"><i class="fa fa-th-large"></i></div>
                 <div data-style="compact" class="btn btn-primary <?=(($listStyle == "compact") ? " active" : "")?>"><i class="fa fa-th"></i></div>

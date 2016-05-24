@@ -2,6 +2,7 @@
 	namespace StardewTP;
 
 	use \Exception;
+	use \APP_ROOT;
 
 	use Sebastian\Kernel;
 	use Sebastian\Application;
@@ -25,6 +26,10 @@
 			parent::preHandle();
 			$this->get('templating')->addMacro('test', function() { print ('test'); });
 		}
+
+		public function getWebDirectory() {
+			return implode(DIRECTORY_SEPARATOR, [APP_ROOT, '..', 'web']);
+		} 
 
 		public function onException(Exception $e) {
 			print ($e->getMessage());

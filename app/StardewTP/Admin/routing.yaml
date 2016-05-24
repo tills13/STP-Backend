@@ -2,6 +2,14 @@ partner:
     type: group
     route: /partners
     routes: 
+        #list:
+        #    route: ~
+        #    controller: PartnerController
+        #    method: list
+        new: 
+            route: /new
+            controller: Admin:PartnerController
+            method: new
         new_contract: 
             route: /{partner:int}/new_contract
             controller: Admin:PartnerController

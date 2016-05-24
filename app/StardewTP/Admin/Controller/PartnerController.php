@@ -10,6 +10,57 @@
     use StardewTP\Common\Model\Partner;
 
     class PartnerController extends \StardewTP\Common\Controller\PartnerController {
+        public function listAction(Request $request) {
+            $em = $this->getEntityManager();
+            $repo = $em->getRepository('Partner');
+            $partners = $repo->find([
+            ], ['orderBy' => ['id' => 'asc', 'name' => 'desc']]);
+
+            //return new JsonResponse(['partners' => $partners]);
+            //$partners = $repo->getAllPartners();
+
+            return $this->render('partners/list', [
+                'partners' => $partners
+            ]);
+        }
+
+        public function newAction(Request $request) {
+            $em = $this->getEntityManager();
+            $partner = new Partner();
+            $partner->setName("New Partner");
+
+            $formBuilder = $this->getFormBuilder();
+            $formBuilder->load('Admin:partners/edit_partner')
+                        ->attribute('id', 'new-partner')
+                        ->bind(Partner::class, $em);
+            $form = $formBuilder->getForm();
+            $form->bindModel($partner);
+            $form->handleRequest($request);
+
+            $logoDir = implode(DIRECTORY_SEPARATOR, [
+                $this->getContext()->getWebDirectory(),
+                'assets',
+                'logos'
+            ]);
+
+            $logos = array_diff(scandir($logoDir), ['.', '..']);
+
+            if ($request->method('POST')) {
+                $partner = $form->getData();
+                $partner = $em->persist($partner);
+
+                return new RedirectResponse($this->generateUrl('partners:overview', [
+                    'partner' => $partner->getId()
+                ]));
+            }
+
+            return $this->render('partners/new', [
+                'partner' => $partner,
+                'form' => $form,
+                'logos' => $logos
+            ]);
+        }
+
         public function newContractAction(Request $request, $partner) {
             $em = $this->getEntityManager();
             $repo = $em->getRepository('Partner');

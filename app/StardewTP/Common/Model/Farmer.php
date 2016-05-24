@@ -52,6 +52,10 @@
 			return $this->isAdmin;
 		}
 
+		public function setLastSync(DateTime $lastSync) {
+			$this->lastSync = $lastSync;
+		}
+
 		public function getLastSync() {
 			return $this->lastSync;
 		}
@@ -108,6 +112,7 @@
 			return [
 				'id' => $this->getId(),
 				'name' => $this->getName(),
+				'gold' => $this->getGold(),
 				'username' => $this->getUsername(),
 				'raw_id' => $this->getRawId(),
 				'trades' => array_map(function($trade) {

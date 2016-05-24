@@ -28,5 +28,5 @@
 
 
 
-
+<?=$this->embed('javascript', null, false)?>
 <script type="text/javascript" src="/js/stardewtp.js"></script>

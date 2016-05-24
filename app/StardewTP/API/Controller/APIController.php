@@ -9,18 +9,19 @@
     use Sebastian\Core\Session\Session;
 
     use StardewTP\Common\Model\Farmer;
+	use \DateTime;
 
     /**
      * The generic catch-all for API related functions
      */
 	class APIController extends Controller {
 		public function syncAction(Request $request) {
-			$name = $request->body->get('Name', false);
-			$uniqueId = $request->body->get('UniqueId', false);
+			$name = $request->body->get('name', false);
+			$uniqueId = $request->body->get('rawId', false);
 
 			if (!$name || !$uniqueId) {
 				return new JsonResponse([
-					'message' => "name and unique id fields must be provided"
+					'message' => "name and id fields must be provided"
 				], Response::HTTP_BAD_REQUEST);
 			}
 
@@ -39,15 +40,13 @@
 				$firstTime = false;
 			}
 
-			$gold = $request->body->get('Gold');
+			$gold = $request->body->get('gold');
 			$farmer->setGold($gold);
+			$farmer->setLastSync(new DateTime());
 
 			$farmer = $em->persist($farmer);
 			$farmer = $farmerRepo->get("{$uniqueId}_{$name}");
 
-			return new JsonResponse([
-				'farmer' => $farmer,
-				'first_time' => $firstTime
-			], Response::HTTP_OK);
+			return new JsonResponse($farmer, Response::HTTP_OK);
 		}
 	}

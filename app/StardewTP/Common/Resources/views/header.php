@@ -31,10 +31,6 @@
                 </ul>
                 <div class="nav navbar-nav navbar-right">
                     <?php if ($session->check()) { ?>
-                    	<span class="navbar-text">
-                    		Welcome, <a class="b u" href="<?=$router->generateUrl('farmer:edit_self')?>"><?=$session->getUser()->getUsername()?></a>
-                            <span class="label label-primary label-lg"><?=$session->getUser()->getGold(true)?><span class="gold">G</span></span>
-                    	</span>
                         <a class="btn navbar-btn btn-default" href="<?=$router->generateUrl('logout')?>">Logout</a>
                     <?php } else { ?>
 	                    <div class="btn-group">
@@ -47,3 +43,13 @@
         </div>
     </div>
 </div>
+<?php if ($session->check()) { ?>
+<div class="sub-header">
+    <div class="row center">
+        <div class="col-sm-12 col-md-12 text-right">
+            Welcome, <a class="b u" href="<?=$router->generateUrl('farmer:edit_self')?>"><?=$session->getUser()->getUsername()?></a>
+            <span class="label label-primary label-lg"><?=$session->getUser()->getGold(true)?><span class="gold">G</span></span>
+        </div>
+    </div>
+</div>
+<?php } ?>
