@@ -47,16 +47,16 @@ components:
                 use_reflection: true
             entities:
                 Farmer: 
-                    entity: Common:Entity\Farmer
+                    entity: Common:Model\Farmer
                     repository: Common:Repository\Farmer
                 Trade:
-                    entity: Common:Entity\Trade
+                    entity: Common:Model\Trade
                     repository: Common:Repository\Trade
                 Settings:
-                    entity: Common:Entity\Settings
+                    entity: Common:Model\Settings
                 TradeItem:
-                    entity: Common:Entity\TradeItem
+                    entity: Common:Model\TradeItem
                 Partner:
-                    entity: Common:Entity\Partner
+                    entity: Common:Model\Partner
                 Contract:
-                    entity: Common:Entity\Contract
+                    entity: Common:Model\Contract

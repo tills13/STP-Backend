@@ -96,3 +96,128 @@ body > div.header {
         }
     }
 }
+
+body > div.sub-header {
+    padding: 9px 0px;
+    line-height: 22px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+
+    
+    .action {
+        margin-left: 5px;
+        padding: 5px 10px;
+        color: white;
+        font-weight: bold;
+        vertical-align: baseline;
+
+        background: #2b303b;
+        border-radius: @border-radius;
+
+        &:hover {
+            background: lighten(#2b303b, 20%);
+
+            .description {
+                margin-left: 5px;
+                max-width: 300px;
+                transition: max-width 0.5s linear,
+                            margin 0.2s linear;
+            }
+        }
+    }
+
+    .gold-count {
+        margin-left: 5px;
+        padding: 5px 10px;
+        color: white;
+        font-weight: bold;
+        vertical-align: baseline;
+
+        background: @label-primary-bg;
+        border-radius: @border-radius;
+    }
+
+    /*.actions {
+        display: inline-block;
+        color: white;
+
+        > .action {
+            float: left;
+            padding: 5px;
+            font-size: 75%;
+            font-weight: bold;
+            line-height: 1;
+
+            color: white;
+            background: @label-primary-bg;
+
+            &:first-child {
+                border-top-left-radius: @border-radius;
+                border-bottom-left-radius: @border-radius;
+            }
+
+            &:last-child {
+                border-top-right-radius: @border-radius;
+                border-bottom-right-radius: @border-radius;
+            }
+
+            // custom
+            &.gold-count {
+                background: @label-primary-bg;
+            }
+        }
+    }*/
+}
+
+    /*.action {
+        display: inline;
+        height: 22px;
+
+        span.description {
+            padding: 0px; margin: 0px;
+            width: auto;
+            max-width: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        &:hover {
+            span.description {
+                margin-left: 5px;
+                max-width: 1000px;
+            }
+        }
+    }
+
+        display: inline;
+        padding: 5px 10px;
+        font-size: 75%;
+        font-weight: bold;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+
+        color: #2b303b;
+        background: none;
+        border-radius: @border-radius;
+
+        transition: max-width 1s ease;
+
+        
+
+        &:hover {
+            background: #2b303b;
+
+            span.p {
+                color: white;
+                margin-left: 5px;
+                max-width: 1000px;
+            }
+        }
+    }
+
+    .label {
+        margin-left: 10px;
+        padding: 5px 10px;
+    }
+}*/

@@ -29,27 +29,28 @@
                     <li><a href="/jobs">Jobs</a></li>
                     <li><a href="/partners">Partners</a></li>
                 </ul>
-                <div class="nav navbar-nav navbar-right">
-                    <?php if ($session->check()) { ?>
-                        <a class="btn navbar-btn btn-default" href="<?=$router->generateUrl('logout')?>">Logout</a>
-                    <?php } else { ?>
-	                    <div class="btn-group">
-	                        <a class="btn navbar-btn" href="<?=$router->generateUrl('register')?>">Register</a>
-	                        <a class="btn navbar-btn" href="<?=$router->generateUrl('login')?>">Login</a>
-	                    </div>
-                    <?php } ?>
-                </div>
             </div>
         </div>
     </div>
 </div>
-<?php if ($session->check()) { ?>
+
 <div class="sub-header">
     <div class="row center">
-        <div class="col-sm-12 col-md-12 text-right">
-            Welcome, <a class="b u" href="<?=$router->generateUrl('farmer:edit_self')?>"><?=$session->getUser()->getUsername()?></a>
-            <span class="label label-primary label-lg"><?=$session->getUser()->getGold(true)?><span class="gold">G</span></span>
+        <div class="col-sm-6 col-md-6">
+            <?php if ($session->check()) { ?>
+                Welcome, <a class="b u" href="<?=$router->generateUrl('farmer:edit_self')?>"><?=$session->getUser()->getUsername()?></a>
+            <?php } ?>
+        </div>
+        <div class="col-sm-6 col-md-6 text-right">
+            <?php if ($session->check()) { ?>
+                <a class="action" href=""><i class="fa fa-user"></i></a>
+                <a class="action" href="<?=$router->generateUrl('logout')?>"><i class="fa fa-sign-out"></i></a>
+                <span class="gold-count"><?=$session->getUser()->getGold(true)?><span class="gold">G</span></span>
+                
+            <?php } else { ?>
+                <a class="action" href="<?=$router->generateUrl('login')?>">Login</a>
+                <a class="action" href="<?=$router->generateUrl('register')?>">Register</a>
+            <?php } ?>
         </div>
     </div>
 </div>
-<?php } ?>
