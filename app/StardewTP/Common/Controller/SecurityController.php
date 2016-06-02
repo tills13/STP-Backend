@@ -13,7 +13,7 @@
 			$formBuilder = $this->getFormBuilder();
             $formBuilder->create('login_form')
                     ->method("POST")
-                    ->attribute('class', 'login-form form-horizontal')
+                    ->attribute('class', 'form-horizontal')
                     ->add('username', 'text', [
                     	'id' => 'login-username',
                         'class' => 'form-control',
