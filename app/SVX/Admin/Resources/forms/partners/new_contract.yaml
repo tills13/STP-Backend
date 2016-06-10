@@ -1,0 +1,24 @@
+new_contract:
+    method: POST
+    attributes:
+        class: form
+    fields: 
+        title:
+            type: text
+            attributes: 
+                id: title
+                class: form-control
+                placeholder: Title
+        description:
+            type: textarea
+            attributes: 
+                id: description
+                class: form-control
+                rows: 8
+                placeholder: Description
+        payout:
+            type: text
+            attributes: 
+                id: payout
+                class: form-control
+                placeholder: Payout

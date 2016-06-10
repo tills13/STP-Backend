@@ -1,6 +1,6 @@
 <?php
     $map = [
-        'StardewTP' => 'app'
+        'SVX' => 'app'
     ];
 
     $autoLoader = function($className) use ($map) {
