@@ -107,9 +107,9 @@
                 $partner = $form->getData();
                 $em->persist($partner);
 
-                //return new RedirectResponse($this->generateUrl('partners:overview', [
-                //    'partner' => $partner->getId()
-                //]));
+                return new RedirectResponse($this->generateUrl('partners:overview', [
+                    'partner' => $partner->getId()
+                ]));
             }
 
             return $this->render('partners/edit', [

@@ -1,0 +1,7 @@
+{
+    "version": "0.1.0",
+    "command": "lessc",
+    "isShellCommand": true,
+    "args": ["${workspaceRoot}/app/SVX/Common/Resources/less/style.less", "${workspaceRoot}/web/css/style.css"],
+    "showOutput": "never"
+}

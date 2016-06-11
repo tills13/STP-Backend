@@ -14,7 +14,7 @@
 			$em = $this->getEntityManager();
 			$repo = $em->getRepository('Trade');
 
-			$trades = $repo->find(null, [
+			$trades = $repo->find(['status' => 'open'], [
 				'orderBy' => ['id' => 'desc'],
 				'limit' => $limit,
 				'offset' => $offset

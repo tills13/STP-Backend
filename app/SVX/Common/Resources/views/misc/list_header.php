@@ -11,8 +11,8 @@
         </div>
         <div class="actions col-md-6 col-sm-6 text-right">
             <div class="btn-group" rel="adjust-list-style" data-target="#<?=$target?>">
-                <div data-style="comfy" class="btn btn-primary <?=(($listStyle == "comfy") ? " active" : "")?>"><i class="fa fa-th-large"></i></div>
                 <div data-style="compact" class="btn btn-primary <?=(($listStyle == "compact") ? " active" : "")?>"><i class="fa fa-th"></i></div>
+                <div data-style="comfy" class="btn btn-primary <?=(($listStyle == "comfy") ? " active" : "")?>"><i class="fa fa-th-large"></i></div>
                 <div data-style="list" class="btn btn-primary <?=(($listStyle == "list") ? " active" : "")?>"><i class="fa fa-list"></i></div>
             </div>
 
