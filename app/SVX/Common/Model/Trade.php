@@ -34,7 +34,7 @@
 			return $formatted ? number_format($this->askingPrice) : $this->askingPrice;
 		}
 
-		public function setBuyer(Farmer $farmer) {
+		public function setBuyer(Farmer $buyer) {
 			$this->buyer = $buyer;
 		}
 

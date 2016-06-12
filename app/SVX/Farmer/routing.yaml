@@ -3,6 +3,10 @@ farmer:
     route: /farmer
     component: Farmer
     routes:
+        overview:
+            route: /
+            controller: Farmer:FarmerController
+            method: overview
         edit_self:
             route: /edit
             controller: Farmer:FarmerController

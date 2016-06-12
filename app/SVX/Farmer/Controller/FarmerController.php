@@ -11,6 +11,20 @@
     use SVX\Common\Model\Farmer;
 
 	class FarmerController extends Controller {
+        public function overviewAction(Request $request) {
+            $em = $this->getEntityManager();
+	        $tradeRepo = $em->getRepository('Trade');    
+
+
+            $eb = new ExpressionBuilder();
+            $expression = $eb->orExpr(
+                $eb->eq('seller', $session->getUser()),
+                $eb->eq('buyer', $sessoin->getUser())
+            );
+
+            $trades = $tradeRepo->find([$expression]);
+        }
+
 		public function editAction(Request $request, Session $session) {
             //$session->reload();
             $em = $this->getEntityManager();
