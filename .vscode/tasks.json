@@ -3,5 +3,12 @@
     "command": "lessc",
     "isShellCommand": true,
     "args": ["${workspaceRoot}/app/SVX/Common/Resources/less/style.less", "${workspaceRoot}/web/css/style.css"],
-    "showOutput": "never"
+    "showOutput": "never",
+    "windows": {
+        "args": [
+            "--verbose",
+            "${workspaceRoot}\\app\\SVX\\Common\\Resources\\less\\style.less", 
+            "${workspaceRoot}\\web\\css\\style.css"
+        ]
+    }
 }

@@ -14,10 +14,13 @@
             $em = $this->getEntityManager();
             $repo = $em->getRepository('Partner');
             $partners = $repo->find([], [
-                'orderBy' => ['id' => 'asc', 'name' => 'desc']
+                'orderBy' => [
+                    'id' => 'asc', 
+                    'name' => 'desc'
+                ]
             ]);
 
-            return $this->render('partners/list', [
+            return $this->render('partner/list', [
                 'partners' => $partners
             ]);
         }
@@ -28,7 +31,7 @@
             $partner->setName("New Partner");
 
             $formBuilder = $this->getFormBuilder();
-            $formBuilder->load('Admin:partners/edit_partner')
+            $formBuilder->load('Admin:partner/edit_partner')
                         ->attribute('id', 'new-partner')
                         ->bind(Partner::class, $em);
 
@@ -53,7 +56,7 @@
                 ]));
             }
 
-            return $this->render('partners/new', [
+            return $this->render('partner/new', [
                 'partner' => $partner,
                 'form' => $form,
                 'logos' => $logos
@@ -66,7 +69,7 @@
             $partner = $repo->get($partner);
 
             $formBuilder = $this->getFormBuilder();
-            $formBuilder->load('Admin:partners/new_contract')
+            $formBuilder->load('Admin:partner/new_contract')
                         ->bind(Contract::class, $em);
 
             $form = $formBuilder->getForm();
@@ -83,7 +86,7 @@
                     'partner' => $partner->getId()
                 ]));
             } else {
-                return $this->render('partners/contracts/new', [
+                return $this->render('partner/contracts/new', [
                     'partner' => $partner,
                     'form' => $form
                 ]);
@@ -96,7 +99,7 @@
             $partner = $repo->get($partner);
 
             $formBuilder = $this->getFormBuilder();
-            $formBuilder->load('Admin:partners/edit_partner')
+            $formBuilder->load('Admin:partner/edit_partner')
                         ->bind(Partner::class, $em);
 
             $form = $formBuilder->getForm();
@@ -112,7 +115,7 @@
                 ]));
             }
 
-            return $this->render('partners/edit', [
+            return $this->render('partner/edit', [
                 'partner' => $partner,
                 'form' => $form
             ]);

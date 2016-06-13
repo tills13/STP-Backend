@@ -1,6 +1,5 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "editor.fontFamily": "Inconsolata, Menlo, Monaco, 'Courier New', monospace",
 	"editor.fontSize": 15,
 	"editor.wrappingColumn": 300,
 	"editor.scrollBeyondLastLine": true,

@@ -2,10 +2,6 @@ partner:
     type: group
     route: /partners
     routes: 
-        #list:
-        #    route: ~
-        #    controller: PartnerController
-        #    method: list
         new: 
             route: /new
             controller: Admin:PartnerController

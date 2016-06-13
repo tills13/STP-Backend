@@ -24,7 +24,6 @@
 
 		public function preHandle() {
 			parent::preHandle();
-			$this->get('templating')->addMacro('test', function() { print ('test'); });
 		}
 
 		public function getWebDirectory() {

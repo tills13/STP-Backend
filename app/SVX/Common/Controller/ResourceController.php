@@ -64,7 +64,7 @@
 		public function getFaviconAction() {}
 
 		public function getAssetAction($filename, $v = 1) {
-			
+			return new Response();
 		}
 
 		private function getFileFromFolder($folder, $filename) {

@@ -6,7 +6,7 @@
             "type": "php",
             "request": "launch",
             "port": 9000,
-            "serverSourceRoot": "/mnt/stardew.sbstn.ca",
+            "serverSourceRoot": "/mnt/svx.sbstn.ca",
             "localSourceRoot": "${workspaceRoot}"
         },
         {

@@ -1,4 +1,7 @@
 <?=$this->extend('master')?>
+
+<?=$this->block('title', 'Login')?>
+
 <?=$this->block('body')?>
 	<div class="row">
 		<div class="col-md-6 col-sm-10 col-xs-12 col-md-offset-3 col-sm-offset-1">

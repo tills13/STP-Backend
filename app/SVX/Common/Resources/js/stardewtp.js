@@ -24,7 +24,6 @@ stp.prototype = {
     },
 
     registerObservers: function() {
-                    console.log("asdasd");
         $(document.body).on('click', '.btn-group[rel="adjust-list-style"] > .btn', function(event) {
             var button = $(event.currentTarget);
             var group = button.parent('.btn-group');

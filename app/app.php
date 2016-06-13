@@ -4,6 +4,6 @@
 
     $kernel = new SVX\AppKernel("dev");
     $response = $kernel->run();
-    $response->send();
+    if ($response) $response->send();
     
     $kernel->shutdown($response);
