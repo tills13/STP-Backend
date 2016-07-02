@@ -1,5 +1,7 @@
 <?=$this->extend('master')?>
 
+<?=$this->block('title', $partner->getName())?>
+
 <?=$this->block('body')?>
     <div class="partner-overview">
         <div class="row info">

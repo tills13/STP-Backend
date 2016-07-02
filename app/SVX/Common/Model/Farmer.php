@@ -7,16 +7,17 @@
 	use \DateTime;
 
 	class Farmer implements UserInterface,JsonSerializable {
-		protected $id;
-		protected $name;
-		protected $username;
-		protected $isAdmin;
-		protected $gold;
-		protected $rawId;
 		protected $createdAt;
-		protected $modifiedAt;
+		protected $gold;
+		protected $id;
+		protected $isAdmin;
 		protected $lastSync;
+		protected $modifiedAt;		
+		protected $name;
+		protected $rawId;
+		protected $token;
 		protected $trades;
+		protected $username;
 
 		public function __construct() {}
 
@@ -82,6 +83,14 @@
 
 		public function getRawId() {
 			return $this->rawId;
+		}
+
+		public function setToken(string $token) {
+			$this->token = $token;
+		}
+
+		public function getToken() : string {
+			return $this->token;
 		}
 
 		public function setTrades(array $trades = []) {

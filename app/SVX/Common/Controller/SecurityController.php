@@ -11,18 +11,7 @@
 	class SecurityController extends Controller {
 		public function loginAction(Request $request, Session $session) {
 			$formBuilder = $this->getFormBuilder();
-            $formBuilder->create('login_form')
-                    ->method("POST")
-                    ->attribute('class', 'form-horizontal')
-                    ->add('username', 'text', [
-                    	'id' => 'login-username',
-                        'class' => 'form-control',
-                        'placeholder' => 'Username'
-                    ])->add('password', 'password', [
-                    	'id' => 'login-password',
-                        'class' => 'form-control',
-                        'placeholder' => 'Password'
-                    ]);
+            $formBuilder->load('Common:auth/login');
 
             $form = $formBuilder->getForm();
             $form->handleRequest($request);
@@ -58,7 +47,6 @@
             $formBuilder = $this->getFormBuilder();
             $formBuilder->create('register_form')
                     ->method("POST")
-                    ->attribute('class', 'login-form form-horizontal')
                     ->add('username', 'text', [
                         'id' => 'login-username',
                         'class' => 'form-control',

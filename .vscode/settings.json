@@ -1,8 +1,13 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "editor.fontFamily": "Inconsolata, Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "Inconsolata, Menlo, Monaco, 'Courier New', monospace",
 	"editor.fontSize": 15,
 	"editor.wrappingColumn": 300,
 	"editor.scrollBeyondLastLine": true,
-	"editor.selectionHighlight": false
+	"editor.selectionHighlight": false,
+	"editor.renderWhitespace": false,
+	"workbench.showEditorTabs": true,
+	"php.validate.run": "onType",
+	"crane.showStatusBarBugReportLink": false,
+	"crane.debugMode": false
 }

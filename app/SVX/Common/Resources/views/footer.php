@@ -26,7 +26,5 @@
 </div>
 
 
-
-
 <?=$this->embed('javascript', null, false)?>
-<script type="text/javascript" src="/js/stardewtp.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>

@@ -1,0 +1,17 @@
+edit_partner:
+    method: POST
+    attributes:
+        class: form
+    fields: 
+        username:
+            type: text
+            attributes: 
+                id: username
+                class: form-control
+                placeholder: Username
+        password:
+            type: password
+            attributes: 
+                id: password
+                class: form-control
+                placeholder: Password

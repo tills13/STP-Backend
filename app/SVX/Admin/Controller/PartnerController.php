@@ -85,6 +85,7 @@
             } else {
                 return $this->render('partners/contracts/new', [
                     'partner' => $partner,
+                    'items' => $this->getConnection()->execute('SELECT id,name FROM items i ORDER BY i.name ASC'),
                     'form' => $form
                 ]);
             }

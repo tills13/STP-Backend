@@ -13,9 +13,8 @@
 			return $this->render('index');
 		}
 
-		public function searchAction(Request $request) {
+		public function searchAction(Request $request) : Response {
 			if ($request->method(Request::METHOD_POST)) {
-				// do the search
 				$query = $request->get('query', '');
 				return $this->render('search/search_results', [
 					'query' => $query,
@@ -27,9 +26,7 @@
 		}
 
 		public function heartbeatAction(Request $request) {
-			return new JsonResponse([
-				'message' => 'All Good!'
-			], Response::HTTP_OK);
+			return new Response(1, Response::HTTP_OK);
 		}
 
 		public function testAction(Request $request) {

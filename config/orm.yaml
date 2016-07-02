@@ -36,6 +36,9 @@ Farmer:
                 type: many
                 local: id
                 foreign: seller
+        token:
+            column: token
+            type: text
 
 Trade:
     table: trades
@@ -125,12 +128,18 @@ Contract:
                 type: one
                 foreign: id
                 local: owner
-        contractor: 
-            targetEntity: Farmer
+        totalOrders:
+            column: total_orders
+            type: int
+        remainingOrders:
+            column: remaining_orders
+            type: int
+        items:
+            targetEntity: ContractItem
             join:
-                type: one
-                foreign: id
-                local: contractor
+                type: many
+                foreign: contract
+                local: id
         status:
             column: status
             type: text
@@ -143,6 +152,56 @@ Contract:
         modifiedAt:
             column: modified_at
             type: timestamp
+
+ContractFulfillment:
+    table: contract_fulfillments
+    keys: [id]
+    fields:
+        id:
+            column: id
+            type: serial
+        contract:
+            targetEntity: Contract
+            join:
+                type: one
+                foreign: id
+                local: contract
+        farmer:
+            targetEntity: Farmer
+            join:
+                type: one
+                foreign: id
+                local: farmer
+        date:
+            column: date
+            type: timestamp
+
+ContractItem:
+    table: contract_items
+    keys: [id]
+    fields:
+        id:
+            column: id
+            type: serial
+        contract:
+            targetEntity: Contract
+            join:
+                type: one
+                foreign: id
+                local: contract
+        item: 
+            join:
+                table: items
+                type: one
+                local: item
+                foreignColumn: id
+                columns: [id,name,description,image_url]
+        quantity:
+            column: amount
+            type: int
+        quality:
+            column: quality
+            type: int
 
 Partner:
     table: partners

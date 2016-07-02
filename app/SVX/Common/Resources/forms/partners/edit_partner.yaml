@@ -1,0 +1,36 @@
+edit_partner:
+    method: POST
+    attributes:
+        class: form
+    fields: 
+        name:
+            type: text
+            attributes: 
+                id: name
+                class: form-control
+                placeholder: Name
+        description:
+            type: textarea
+            attributes: 
+                id: description
+                class: form-control
+                rows: 8
+                placeholder: Description
+        logo:
+            type: text
+            attributes: 
+                id: logo
+                class: form-control
+                placeholder: Logo
+        is_approved:
+            type: checkbox
+            attributes: 
+                id: is_approved
+                class: pull-right
+                map: isApproved
+        is_enabled:
+            type: checkbox
+            attributes: 
+                id: name
+                class: pull-right
+                map: isEnabled

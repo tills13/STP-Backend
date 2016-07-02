@@ -1,15 +1,14 @@
 <?php
 	namespace SVX\API\Controller;
 
+	use \DateTime;
+
 	use Sebastian\Core\Controller\Controller;
 	use Sebastian\Core\Http\Request;
-	use Sebastian\Core\Http\Response\Response;
     use Sebastian\Core\Http\Response\JsonResponse;
-    use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
     use SVX\Common\Model\Farmer;
-	use \DateTime;
 
     /**
      * The generic catch-all for API related functions
@@ -22,7 +21,7 @@
 			if (!$name || !$uniqueId) {
 				return new JsonResponse([
 					'message' => "name and id fields must be provided"
-				], Response::HTTP_BAD_REQUEST);
+				], JsonResponse::HTTP_BAD_REQUEST);
 			}
 
 			$em = $this->getEntityManager();
@@ -47,6 +46,6 @@
 			$farmer = $em->persist($farmer);
 			$farmer = $farmerRepo->get("{$uniqueId}_{$name}");
 
-			return new JsonResponse($farmer, Response::HTTP_OK);
+			return new JsonResponse($farmer, JsonResponse::HTTP_OK);
 		}
 	}

@@ -61,10 +61,12 @@
 			throw new \Exception("Error Processing Request", 1);
 		}
 
-		public function getFaviconAction() {}
+		public function getFaviconAction() {
+			return new Response();
+		}
 
 		public function getAssetAction($filename, $v = 1) {
-			
+			return new Response();
 		}
 
 		private function getFileFromFolder($folder, $filename) {

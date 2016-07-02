@@ -2,7 +2,6 @@ new_contract:
     method: POST
     attributes:
         class: form
-        name: new-contract
     fields: 
         title:
             type: text

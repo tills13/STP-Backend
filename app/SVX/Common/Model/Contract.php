@@ -2,6 +2,7 @@
     namespace SVX\Common\Model;
 
     use Sebastian\Core\Model\EntityInterface;
+
     use \JsonSerializable;
     use \DateTime;
 
@@ -12,11 +13,13 @@
         const STATUS_RETURNED = "returned";
         const STATUS_CLOSED = "closed";
 
-        protected $contractor;
-        protected $description;
         protected $id;
+        protected $description;
         protected $owner;
         protected $payout;
+        protected $items;
+        protected $totalOrders;
+        protected $remainingOrders;
         protected $status;
         protected $title;
         protected $createdAt;
@@ -24,14 +27,6 @@
 
         public function __construct() {
             $this->status = Contract::STATUS_OPEN;
-        }
-
-        public function setContractor(Farmer $contractor) {
-            $this->contractor = $contractor;
-        }
-
-        public function getContractor() {
-            return $this->contractor;
         }
 
         public function setCreatedAt(DateTime $createdAt) {
@@ -54,6 +49,14 @@
             return $this->id;
         }
 
+        public function setItems(ContractItem ... $items) {
+            $this->items = $items;
+        }
+
+        public function getItems() {
+            return $this->items;
+        }
+
         public function setModifiedAt(DateTime $modifiedAt) {
             $this->modifiedAt = $modifiedAt;
         }
@@ -66,7 +69,7 @@
             $this->owner = $owner;
         }
 
-        public function getOwner() {
+        public function getOwner() : Partner {
             return $this->owner;
         }
 
@@ -76,6 +79,14 @@
 
         public function getPayout($formatted = false) {
             return $formatted ? number_format($this->payout) : $this->payout;
+        }
+
+        public function setRemainingOrders(int $remainingOrders) {
+            $this->remainingOrders = $remainingOrders;
+        }
+
+        public function getRemainingOrders() : int {
+            return $this->remainingOrders;
         }
 
         public function setStatus($status) {
@@ -94,6 +105,14 @@
             return $this->title;
         }
 
+        public function setTotalOrders(int $totalOrders) {
+            $this->totalOrders = $totalOrders;
+        }
+
+        public function getTotalOrders() : int {
+            return $this->totalOrders;
+        }
+
         public function is($status) {
             return $this->getStatus() == $status;
         }
@@ -109,14 +128,13 @@
                 'description' => $this->getDescription(),
                 'status' => $this->getStatus(),
                 'payout' => $this->getPayout(),
+                'items' => $this->getItems(),
+                'total_orders' => $this->getTotalOrders(),
+                'remaining_orders' => $this->getRemainingOrders(),
                 'owner' => [
                     'id' => $this->getOwner()->getId(),
                     'name' => $this->getOwner()->getName()
-                ],
-                'contractor' => $this->getContractor() ? [
-                    'id' => $this->getContractor()->getId(),
-                    'username' => $this->getContractor()->getUsername()
-                ] : null
+                ]
             ];
         }
 

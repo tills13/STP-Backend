@@ -12,7 +12,7 @@ api:
             controller: API:TradeController
             method: new
         trade_overview:
-            route: /trade/{trade:int}/overview
+            route: /trade/{trade:int}
             controller: API:TradeController
             method: overview
         farmer_overview:
@@ -23,5 +23,18 @@ api:
             route: /farmers
             controller: API:FarmerController
             method: getFarmers
+        contracts:
+            route: /contracts
+            controller: API:ContractController
+            method: list
+        contract_overview:
+            route: /contract/{contract:int}
+            controller: API:ContractController
+            method: overview
+        fulfill_contract:
+            route: /contract/{contract:int}/fulfill
+            controller: API:ContractController
+            method: fulfill
+            methods: [POST]
 
 
