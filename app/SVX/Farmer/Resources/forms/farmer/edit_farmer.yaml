@@ -9,9 +9,3 @@ new_contract:
                 id: username
                 class: form-control
                 placeholder: Username
-        is_admin:
-            type: checkbox
-            attributes: 
-                id: is_admin
-                class: pull-right
-                map: isAdmin

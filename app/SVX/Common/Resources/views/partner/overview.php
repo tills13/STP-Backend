@@ -1,6 +1,6 @@
 <?=$this->extend('master')?>
 
-<?=$this->block('title', $partner->getName())?>
+<?=$this->block('title', "{$partner->getName()} - Overview")?>
 
 <?=$this->block('body')?>
     <div class="partner-overview">
@@ -23,7 +23,7 @@
                     'listId' => 'contract-list',
                     'items' => $partner->getContracts(),
                     'itemId' => 'contract',
-                    'listTemplate' => 'partners/contracts/contract'
+                    'listTemplate' => 'partner/contract/contract'
                 ])?>
             </div>
         </div>

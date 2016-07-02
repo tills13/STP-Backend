@@ -36,7 +36,19 @@
 		<?php } ?>
 
 		<div class="row footer">
-			<div class="col-md-12 col-sm-12 col-xs-12 text-right">
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<div class="btn-group">
+					<?php if ($trade->is($trade::STATUS_OPEN) && $session->check() && (!$trade->getSeller()->equals($session->getUser()))) { ?>
+						<a href="<?=$router->generateUrl('trade:purchase_trade', ['trade' => $trade->getId()])?>" class="btn btn-success">Purchase</a>
+					<?php } ?>
+
+					<?php if ($trade->is($trade::STATUS_OPEN) && ($trade->getSeller()->equals($session->getUser()))) { ?>
+						<a href="" class="btn btn-warning">Edit Trade</a>
+						<a href="<?=$router->generateUrl('trade:delete_trade', ['trade' => $trade->getId()])?>" class="btn btn-danger">Delete Trade</a>
+					<?php } ?>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 text-right">
 				<div class="label label-primary cost"><?=$trade->getAskingPrice()?><span class="gold">G</span></div>
 			</div>
 		</div>

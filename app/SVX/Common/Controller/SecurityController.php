@@ -11,12 +11,12 @@
 	class SecurityController extends Controller {
 		public function loginAction(Request $request, Session $session) {
 			$formBuilder = $this->getFormBuilder();
-            $formBuilder->load('Common:auth/login');
 
+            $formBuilder->load('Common:auth/login');
             $form = $formBuilder->getForm();
             $form->handleRequest($request);
 
-			if ($request->method('POST')) {
+			if ($request->method('POST') && $form->isValid()) {
 				$em = $this->getEntityManager();
         		$repo = $em->getRepository('Farmer');
 
@@ -37,7 +37,7 @@
                 }
 			}
 
-            $form->get('password')->setValue(null);
+            //$form->get('password')->setValue(null);
             return $this->render('auth/login', [
 				'form' => $form
 			]);

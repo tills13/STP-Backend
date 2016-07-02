@@ -36,12 +36,12 @@
 
 <div class="sub-header">
     <div class="row center">
-        <div class="col-sm-6 col-md-6">
+        <div class="hidden-xs col-sm-6 col-md-6">
             <?php if ($session->check()) { ?>
                 Welcome, <a class="b u" href="<?=$router->generateUrl('farmer:edit_self')?>"><?=$session->getUser()->getUsername()?></a>
             <?php } ?>
         </div>
-        <div class="col-sm-6 col-md-6 text-right">
+        <div class="col-xs-12 col-sm-6 col-md-6 text-right">
             <?php if ($session->check()) { ?>
                 <a class="action" href=""><i class="fa fa-user"></i></a>
                 <a class="action" href="<?=$router->generateUrl('logout')?>"><i class="fa fa-sign-out"></i></a>

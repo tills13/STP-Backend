@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 edit_partner:
     method: POST
     attributes:
         class: form
+=======
+login_form:
+    method: POST
+    attributes:
+        class: form-horizontal
+>>>>>>> 4818d4e864bb91605652f76b247942f772a42184
     fields: 
         username:
             type: text
@@ -14,4 +21,11 @@ edit_partner:
             attributes: 
                 id: password
                 class: form-control
+<<<<<<< HEAD
                 placeholder: Password
+=======
+                placeholder: Password
+            constraints:
+                not_blank: 
+                    message: "{$name} cannot be blank"
+>>>>>>> 4818d4e864bb91605652f76b247942f772a42184

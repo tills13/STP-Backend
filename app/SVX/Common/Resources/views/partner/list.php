@@ -10,6 +10,6 @@
         'listEmptyMessage' => "We are not working with any partners at this time, please come back later and check again...",
         'items' => $partners,
         'itemId' => 'partner',
-        'listTemplate' => 'partners/partner'
+        'listTemplate' => 'partner/partner'
     ])?>
 <?=$this->endBlock()?>

@@ -104,11 +104,6 @@ img.logo {
     }
 }
 
-
-
-
-
-
 .trade {
     padding: 10px;
     margin: 10px 0% 15px 0%;
@@ -130,10 +125,16 @@ img.logo {
     }
 
     .row.footer {
+        margin-top: 10px; 
+        
         .label {
             padding: .5em 1.2em .45em;
             font-size: 100%;
         }
+    }
+
+    .items {
+        .clearfix;
     }
 
     &:hover {
@@ -145,19 +146,25 @@ img.logo {
 entity-list > .item {
     position: relative;
     display: inline-block;
-    padding: 10px;
-    margin: 5px 0px;
-    min-width: 90px; height: 90px;
-    border-radius: @border-radius;
-    border: 1px solid #CACACA;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+    width: 33.3%;
     text-align: center;
+    float: left;
+
+    .inner {
+        padding-bottom: 10px;
+        border-radius: @border-radius;
+        background: #f0f0f0;
+    }
+    
 
     img { display: inline-block; margin: auto; }
 
     .quantity {
-        position: absolute;
-        top: -1px; right: -1px;
+        width: 100%;
         padding: 2.5px 7px;
+        margin-bottom: 5px;
 
         background-color: #2b303b;
         color: white;
@@ -165,9 +172,7 @@ entity-list > .item {
         text-align: center;
         font-weight: bold;
 
-        border-bottom: 1px solid #2b303b;
-        border-left: 1px solid #2b303b;
-        border-bottom-left-radius: @border-radius;
+        border-top-left-radius: @border-radius;
         border-top-right-radius: @border-radius;
     }
 
@@ -175,7 +180,7 @@ entity-list > .item {
         padding-top: 5px;
         font-weight: 600;
         text-shadow: 0 1px 0 rgba(0,0,0,0.25);
-        color: #909090;
+        color: #909090;        
     }
 }
 

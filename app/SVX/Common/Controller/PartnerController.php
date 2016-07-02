@@ -19,7 +19,7 @@
             //return new JsonResponse(['partners' => $partners]);
             //$partners = $repo->getAllPartners();
 
-            return $this->render('partners/list', [
+            return $this->render('partner/list', [
                 'partners' => $partners
             ]);
         }
@@ -29,7 +29,7 @@
             $repo = $em->getRepository('Partner');
             $partner = $repo->get($partner);
 
-            return $this->render('partners/overview', [
+            return $this->render('partner/overview', [
                 'partner' => $partner
             ]);
         }
