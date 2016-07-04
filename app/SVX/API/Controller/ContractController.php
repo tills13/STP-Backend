@@ -45,6 +45,10 @@
             $contractRepo = $em->getRepository("Contract");
             $contract = $contractRepo->get($contract);
 
+            if (!$contract) {
+                throw HttpException::notFoundException("Contract not found");
+            }
+
             if ($contract->getRemainingOrders() == 0) {
                 return new JsonResponse([
                     'success' => false,
