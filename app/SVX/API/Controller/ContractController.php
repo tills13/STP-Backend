@@ -72,7 +72,8 @@
             }
 
             $fulfillment = new ContractFulfillment($contract, $session->getUser());
-            $contract->setRemainingOrders($contract->getRemainingOrders() - 1);
+            $contract->decrementRemainingOrders();
+            //$contract->setRemainingOrders($contract->getRemainingOrders() - 1);
 
             if ($contract->getRemainingOrders() === 0) {
                 $contract->setStatus(Contract::STATUS_CLOSED);

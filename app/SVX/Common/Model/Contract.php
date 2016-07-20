@@ -33,7 +33,7 @@
             $this->createdAt = $createdAt;
         }
 
-        public function getCreatedAt() {
+        public function getCreatedAt() : DateTime {
             return $this->createdAt;
         }
 
@@ -41,11 +41,11 @@
             $this->description = $description;
         }
 
-        public function getDescription() {
+        public function getDescription() : string {
             return $this->description;
         }
 
-        public function getId() {
+        public function getId() : int {
             return $this->id;
         }
 
@@ -61,7 +61,7 @@
             $this->modifiedAt = $modifiedAt;
         }
 
-        public function getModifiedAt() {
+        public function getModifiedAt() : DateTime {
             return $this->modifiedAt;
         }
 
@@ -83,6 +83,10 @@
 
         public function setRemainingOrders(int $remainingOrders) {
             $this->remainingOrders = $remainingOrders;
+        }
+
+        public function decrementRemainingOrders() {
+            $this->remainingOrders--;
         }
 
         public function getRemainingOrders() : int {

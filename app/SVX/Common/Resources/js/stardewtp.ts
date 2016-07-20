@@ -1,6 +1,3 @@
-/// <reference path="./typings/jquery/jquery.d.ts" types="jquery" />
-/// <reference path="./typings/lodash/lodash.d.ts" types="lodash" />
-
 /**
  * HeroSpinner
  */
@@ -16,7 +13,7 @@ class HeroSpinner {
         this.index = 0;
     }
 
-    step() {
+    step() : void {
         var words = this.spinner.children('.words');
         words.children().eq(this.index).fadeOut(1000, () => {
             this.index = (this.index == (words.children().length -1)) ? 0 : (this.index + 1);
@@ -75,7 +72,7 @@ class SVX {
             target.removeClass(_.difference(['list','comfy','compact'], [style]).join(" "));
         });
 
-        $(document.body).on('click', '*[rel=add-contract-item]', function(event) {
+        $(document.body).on('click', '*[rel=add-contract-item]', (event) => {
             let items = $('form[name=new-contract] .items');
             let template = items.children('.item').clone();
             //template.find('span#count').val(parseInt(template.find('#count').val()) + 1);
