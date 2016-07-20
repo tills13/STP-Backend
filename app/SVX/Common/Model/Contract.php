@@ -2,6 +2,7 @@
     namespace SVX\Common\Model;
 
     use Sebastian\Core\Model\EntityInterface;
+    use SVX\Common\Model\ContractItem;
 
     use \JsonSerializable;
     use \DateTime;

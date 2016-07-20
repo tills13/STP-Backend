@@ -16,9 +16,6 @@
                 'isApproved' => true
             ], ['orderBy' => ['id' => 'asc', 'name' => 'desc']]);
 
-            //return new JsonResponse(['partners' => $partners]);
-            //$partners = $repo->getAllPartners();
-
             return $this->render('partner/list', [
                 'partners' => $partners
             ]);

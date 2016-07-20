@@ -2,7 +2,6 @@
     namespace SVX\Common\Repository;
 
     use SebastianExtra\Repository\Repository;
-    use \PDO;
 
     class PartnerRepository extends Repository {
         public function getAllPartners() {

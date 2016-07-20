@@ -42,7 +42,7 @@
                 <?php if (count($partner->getContracts()) == 0) { ?>
                     <p class="center">No contracts...</p>
                 <?php } else { ?>
-                    <?=$this->import('partners/contracts/contract', ['contract' => $partner->getContracts()[0]])?>
+                    <?=$this->import('partner/contract/contract', ['contract' => $partner->getContracts()[0]])?>
                 <?php } ?>
             </div>
         </div>

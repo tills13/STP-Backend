@@ -68,8 +68,10 @@
             $repo = $em->getRepository('Partner');
             $partner = $repo->get($partner);
 
+            $items = $this->getConnection()->execute('SELECT id,name FROM items i ORDER BY i.name ASC');
+
             $formBuilder = $this->getFormBuilder();
-            $formBuilder->load('Admin:partner/new_contract')
+            $formBuilder->load('Admin:partner/new_contract', [ 'items' => $items ])
                         ->bind(Contract::class, $em);
 
             $form = $formBuilder->getForm();
@@ -79,14 +81,14 @@
             if ($request->method("POST") && $form->isValid()) {
                 $contract = $form->getData();
                 $contract->setOwner($partner);
-                
+
                 $em->persist($contract);
 
                 return new RedirectResponse($this->generateUrl('partners:overview', [
                     'partner' => $partner->getId()
                 ]));
             } else {
-                return $this->render('partner/contracts/new', [
+                return $this->render('partner/contract/new', [
                     'partner' => $partner,
                     'items' => $this->getConnection()->execute('SELECT id,name FROM items i ORDER BY i.name ASC'),
                     'form' => $form

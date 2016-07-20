@@ -16,9 +16,19 @@
                 <div class="form-group">
                     <?=$form->get('description')->render()?>
                 </div>
-                <div class="form-group">
-                    <?=$form->get('payout')->render()?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?=$form->get('payout')->render()?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?=$form->get('total_orders')->render()?>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="items">
                     <h3>Contract Items <small rel="add-contract-item">new</small></h3>
                     <hr/>
@@ -68,7 +78,7 @@
                 <?php if (count($partner->getContracts()) == 0) { ?>
                     <p class="center">No contracts...</p>
                 <?php } else { ?>
-                    <?=$this->import('partners/contracts/contract', ['contract' => $partner->getContracts()[0]])?>
+                    <?=$this->import('partner/contract/contract', ['contract' => $partner->getContracts()[0]])?>
                 <?php } ?>
             </div>
         </div>

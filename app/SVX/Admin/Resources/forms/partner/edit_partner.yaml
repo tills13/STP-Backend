@@ -27,10 +27,10 @@ edit_partner:
             attributes: 
                 id: is_approved
                 class: pull-right
-                map: isApproved
+            map: isApproved
         is_enabled:
             type: checkbox
             attributes: 
                 id: name
                 class: pull-right
-                map: isEnabled
+            map: isEnabled

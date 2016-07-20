@@ -32,7 +32,7 @@
                     'listId' => 'contract-list',
                     'items' => $partner->getContracts(),
                     'itemId' => 'contract',
-                    'listTemplate' => 'partners/contracts/contract'
+                    'listTemplate' => 'partner/contract/contract'
                 ])?>
             </div>
         </div>
