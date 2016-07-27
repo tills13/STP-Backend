@@ -23,6 +23,10 @@ api:
             route: /farmers
             controller: API:FarmerController
             method: getFarmers
+        partner_overview:
+            route: /partner/{partner:int}/overview
+            controller: API:PartnerController
+            method: overview
         contracts:
             route: /contracts
             controller: API:ContractController

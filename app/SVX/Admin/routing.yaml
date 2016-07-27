@@ -14,3 +14,18 @@ partner:
             route: /{partner:int}/edit
             controller: Admin:PartnerController
             method: edit
+
+admin:
+    type: group
+    route: /admin
+    component: Admin
+    routes:
+        manage_cache:
+            route: /cache
+            controller: Admin:AdminController
+            method: manageCache
+        invalidate_cache:
+            route: /cache/invalidate/
+            controller: Admin:AdminController
+            method: invalidateCache
+            methods: [post]

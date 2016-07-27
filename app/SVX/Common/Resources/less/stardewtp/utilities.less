@@ -15,3 +15,56 @@ a {
         font-weight: bold;
     }
 }
+
+.pbar {
+	margin-bottom: 4.5px;
+	width: 100%; height:40px; line-height:38px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: #5A657C;
+	border-radius: @border-radius;
+	white-space: nowrap;
+
+	&.start {
+		max-width: 0px !important;
+	}
+
+	> * {
+		float: left; 
+		padding: 0px; 
+		height: 100%;
+		max-width: 2000px;
+		
+		line-height: inherit; 
+		white-space: nowrap;
+
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		cursor: pointer;
+		transition: max-width 2s linear;
+
+		&:hover {
+			background: lightcoral !important;
+		}
+	}
+
+	.label {
+		margin-left: 9px;
+	}
+
+	> *:first-child {
+		border-top-left-radius: 2px;
+		border-bottom-left-radius: 2px;
+	}
+
+	> *:last-child {
+		border-top-right-radius: 2px;
+		border-bottom-right-radius: 2px;
+	}
+
+	&:after {
+		display: block;
+		clear: both; 
+		content: "";
+	}
+}

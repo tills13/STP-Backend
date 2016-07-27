@@ -50,6 +50,10 @@
             return $this->id;
         }
 
+        public function addItem(ContractItem $item) {
+            $this->items[] = $item;
+        }
+
         public function setItems(ContractItem ... $items) {
             $this->items = $items;
         }
@@ -91,7 +95,7 @@
         }
 
         public function getRemainingOrders() : int {
-            return $this->remainingOrders;
+            return $this->remainingOrders ?? 0; // todo
         }
 
         public function setStatus($status) {

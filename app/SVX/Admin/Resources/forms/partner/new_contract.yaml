@@ -33,7 +33,8 @@ new_contract:
                 value: 1
             map: totalOrders
         items:
-            targetEntity: ContractItem
+            target_entity: ContractItem
+            mapped: false
             fields:
                 item:
                     type: select

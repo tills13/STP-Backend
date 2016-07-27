@@ -31,11 +31,12 @@ Farmer:
             column: last_sync
             type: timestamp
         trades:
-            targetEntity: Trade
+            target_entity: Trade
             join:
                 type: many
                 local: id
                 foreign: seller
+                order_by: ['created_at', 'DESC']
         token:
             column: token
             type: text
@@ -52,19 +53,21 @@ Trade:
             column: status
             type: text
         seller:
-            targetEntity: Farmer
+            target_entity: Farmer
+            column: seller
             join:
                 type: one
                 foreign: id
                 local: seller
         buyer:
-            targetEntity: Farmer
+            target_entity: Farmer
+            column: buyer
             join:
                 type: one
                 foreign: id
                 local: buyer
         items:
-            targetEntity: TradeItem
+            target_entity: TradeItem
             join:
                 type: many
                 foreign: trade
@@ -90,17 +93,19 @@ TradeItem:
             column: id
             type: serial
         trade:
-            targetEntity: Trade
+            target_entity: Trade
+            column: trade
             join:
                 type: one
                 foreign: id
                 local: trade
         item: 
+            column: item
             join:
                 table: items
                 type: one
                 local: item
-                foreignColumn: id
+                foreign_column: id
                 columns: [id,name,description,image_url]
         amount:
             column: amount
@@ -123,7 +128,8 @@ Contract:
             column: description
             type: text
         owner: 
-            targetEntity: Partner
+            target_entity: Partner
+            column: owner
             join:
                 type: one
                 foreign: id
@@ -135,7 +141,7 @@ Contract:
             column: remaining_orders
             type: int
         items:
-            targetEntity: ContractItem
+            target_entity: ContractItem
             join:
                 type: many
                 foreign: contract
@@ -161,13 +167,15 @@ ContractFulfillment:
             column: id
             type: serial
         contract:
-            targetEntity: Contract
+            target_entity: Contract
+            column: contract
             join:
                 type: one
                 foreign: id
                 local: contract
         farmer:
-            targetEntity: Farmer
+            target_entity: Farmer
+            column: farmer
             join:
                 type: one
                 foreign: id
@@ -184,17 +192,19 @@ ContractItem:
             column: id
             type: serial
         contract:
-            targetEntity: Contract
+            target_entity: Contract
+            column: contract
             join:
                 type: one
                 foreign: id
                 local: contract
         item: 
+            column: item
             join:
                 table: items
                 type: one
                 local: item
-                foreignColumn: id
+                foreign_column: id
                 columns: [id,name,description,image_url]
         quantity:
             column: amount
@@ -227,11 +237,12 @@ Partner:
             column: is_enabled
             type: boolean
         contracts: 
-            targetEntity: Contract
+            target_entity: Contract
             join:
                 type: many
                 local: id
                 foreign: owner
+                order_by: ['createdAt', 'DESC']
         createdAt:
             column: created_at
             type: timestamp

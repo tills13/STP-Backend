@@ -9654,6 +9654,51 @@ a.u {
 a.b {
   font-weight: bold;
 }
+.pbar {
+  margin-bottom: 4.5px;
+  width: 100%;
+  height: 40px;
+  line-height: 38px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background: #5A657C;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.pbar.start {
+  max-width: 0px !important;
+}
+.pbar > * {
+  float: left;
+  padding: 0px;
+  height: 100%;
+  max-width: 2000px;
+  line-height: inherit;
+  white-space: nowrap;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  transition: max-width 2s linear;
+}
+.pbar > *:hover {
+  background: lightcoral !important;
+}
+.pbar .label {
+  margin-left: 9px;
+}
+.pbar > *:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.pbar > *:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.pbar:after {
+  display: block;
+  clear: both;
+  content: "";
+}
 @media (max-width: 768px) {
   .center {
     width: auto;

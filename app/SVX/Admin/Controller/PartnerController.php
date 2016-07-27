@@ -7,6 +7,7 @@
     use Sebastian\Utility\Utility\Utils;
 
     use SVX\Common\Model\Contract;
+    use SVX\Common\Model\ContractItem;
     use SVX\Common\Model\Partner;
 
     class PartnerController extends \SVX\Common\Controller\PartnerController {
@@ -81,6 +82,15 @@
             if ($request->method("POST") && $form->isValid()) {
                 $contract = $form->getData();
                 $contract->setOwner($partner);
+
+                $items = $request->get("{$form->getName()}.items.item");
+                $qualities = $request->get("{$form->getName()}.items.quality");
+                $quantities = $request->get("{$form->getName()}.items.quantity");
+
+                for ($i = 0; $i < count($items); $i++) {
+                    $mItem = new ContractItem($contract, $items[$i], $quantities[$i], $qualities[$i]);
+                    $contract->addItem($mItem);
+                }
 
                 $em->persist($contract);
 

@@ -1,4 +1,4 @@
-<div class="row center footer">
+<div class="row center footer hide">
     <div class="col-md-12">
         <hr/>
         <div class="row">
@@ -24,7 +24,6 @@
         </div>
     </div>
 </div>
-
 
 <?=$this->embed('javascript', null, false)?>
 <script type="text/javascript" src="/js/app.js"></script>

@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header hide">
     <div class="screen"></div>
     <div class="hero row-fluid">
     	<h2 class="spinner row">

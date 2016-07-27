@@ -21,9 +21,10 @@
             $contractRepo = $em->getRepository("Contract");
 
             $contracts = $contractRepo->find();
-             return new JsonResponse([
-                 'contracts' => $contracts
-             ], JsonResponse::HTTP_OK);
+
+            return new JsonResponse([
+                'contracts' => $contracts
+            ], JsonResponse::HTTP_OK);
         }
 
         public function overviewAction(Request $request, $contract) {
@@ -73,7 +74,6 @@
 
             $fulfillment = new ContractFulfillment($contract, $session->getUser());
             $contract->decrementRemainingOrders();
-            //$contract->setRemainingOrders($contract->getRemainingOrders() - 1);
 
             if ($contract->getRemainingOrders() === 0) {
                 $contract->setStatus(Contract::STATUS_CLOSED);
