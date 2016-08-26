@@ -9,7 +9,7 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
-    use SVX\Common\Model\Farmer;
+    use SVX\Common\Entity\Farmer;
 
 	class FarmerController extends Controller {
 		public function overviewAction(Request $request, $farmer) {
@@ -27,7 +27,7 @@
 			], Response::HTTP_OK);
 		}
 
-		public function getFarmersAction(Request $reqest) {
+		public function listAction(Request $reqest) {
 			$em = $this->getEntityManager();
 			$farmerRepo = $em->getRepository("Farmer");
 			$farmers = $farmerRepo->find();

@@ -1,10 +1,11 @@
 <?php
-	namespace SVX\Farmer\Controller;
+	namespace SVX\Common\Controller;
 
     use \PDOException;
 
 	use Sebastian\Core\Controller\Controller;
     use Sebastian\Core\Database\Exception\DatabaseException;
+    use Sebastian\Core\Http\Exception\HttpException;
 	use Sebastian\Core\Http\Request;
 	use Sebastian\Core\Http\Response\Response;
     use Sebastian\Core\Http\Response\JsonResponse;
@@ -14,19 +15,26 @@
     use SVX\Common\Entity\Farmer;
 
 	class FarmerController extends Controller {
-        public function overviewAction(Request $request, Session $session) {
+        public function overviewAction(Request $request, Session $session, $farmer) {
             $em = $this->getEntityManager();
-	        $tradeRepo = $em->getRepository('Trade');    
+	        $tradeRepo = $em->getRepository('Trade');
+            $farmerRepo = $em->getRepository('Farmer');
+
+            $farmer = $farmerRepo->findOne([ 'username' => $farmer ]);
+
+            if (!$farmer) {
+                throw HttpException::notFoundException("Farmer with requested username not found...");
+            }
 
             $expression = $em->expr()->orExpr(
-                $em->expr()->eq('seller', "'{$session->getUser()->getId()}'"),
-                $em->expr()->eq('buyer', "'{$session->getUser()->getId()}'")
+                $em->expr()->eq('seller', "'{$farmer->getId()}'"),
+                $em->expr()->eq('buyer', "'{$farmer->getId()}'")
             );
 
             $trades = $tradeRepo->find([$expression]);
 
             return $this->render('farmer/overview', [
-                'farmer' => $session->getUser(),
+                'farmer' => $farmer,
                 'trades' => $trades
             ]);
         }

@@ -1,5 +1,5 @@
 <?php
-    namespace SVX\Common\Model;
+    namespace SVX\Common\Entity;
 
     use Sebastian\Core\Model\UserInterface;
     use Sebastian\Core\Model\EntityInterface;

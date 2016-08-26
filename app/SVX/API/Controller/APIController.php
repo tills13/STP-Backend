@@ -4,23 +4,29 @@
 	use \DateTime;
 
 	use Sebastian\Core\Controller\Controller;
+	use Sebastian\Core\Http\Exception\HttpException;
 	use Sebastian\Core\Http\Request;
     use Sebastian\Core\Http\Response\JsonResponse;
     use Sebastian\Core\Session\Session;
 
-    use SVX\Common\Model\Farmer;
+    use SVX\Common\Entity\Farmer;
 
     /**
      * The generic catch-all for API related functions
      */
 	class APIController extends Controller {
-		public function syncAction(Request $request) {
-			$name = $request->body->get('name', false);
-			$uniqueId = $request->body->get('rawId', false);
+		public function syncAction(Request $request, Session $session) {
+			$currentUser = $session->getUser();
+			$name = $request->body->get('name') ?? $currentUser->getName();
+			$uniqueId = $request->body->get('rawId') ?? $currentUser->getRawId();
+
+			if (!$currentUser->getIsAdmin() && $currentUser->getRawId() != $uniqueId) {
+				HttpException::forbiddenException();
+			}
 
 			if (!$name || !$uniqueId) {
 				return new JsonResponse([
-					'message' => "name and id fields must be provided"
+					'message' => "Name and id (rawId) fields must be provided"
 				], JsonResponse::HTTP_BAD_REQUEST);
 			}
 

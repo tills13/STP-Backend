@@ -1,8 +1,8 @@
 <?php
-    namespace SVX\Common\Model;
+    namespace SVX\Common\Entity;
 
     use Sebastian\Core\Model\EntityInterface;
-    use SVX\Common\Model\ContractItem;
+    use SVX\Common\Entity\ContractItem;
 
     use \JsonSerializable;
     use \DateTime;
@@ -95,7 +95,11 @@
         }
 
         public function getRemainingOrders() : int {
-            return $this->remainingOrders ?? 0; // todo
+            return $this->remainingOrders ?? 0;
+        }
+
+        public function hasRemainingOrders() {
+            return $this->getRemainingOrders() !== 0;
         }
 
         public function setStatus($status) {

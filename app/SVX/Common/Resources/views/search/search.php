@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="form-group">
                 <label for="query">Search Query</label>
-                <input id="query" name="query" placeholder="Search" class="form-control" value="<?=$query?>"/> 
+                <input id="query" name="query" placeholder="Search" class="form-control" value="<?=$query ?? ""?>"/> 
             </div>
             <div class="clearfix">
                 <div class="btn-group pull-right">

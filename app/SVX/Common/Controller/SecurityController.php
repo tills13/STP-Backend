@@ -1,6 +1,8 @@
 <?php
 	namespace SVX\Common\Controller;
 
+    use \PDOException;
+
 	use Sebastian\Core\Controller\Controller;
 	use Sebastian\Core\Http\Request;
 	use Sebastian\Core\Http\Response\Response;
@@ -47,23 +49,23 @@
             $formBuilder = $this->getFormBuilder();
             $formBuilder->create('register_form')
                     ->method("POST")
-                    ->add('username', 'text', [
+                    ->add('username', 'text', null, [
                         'id' => 'login-username',
                         'class' => 'form-control',
                         'placeholder' => 'Username'
-                    ])->add('email', 'text', [
+                    ])->add('email', 'text', null, [
                         'id' => 'login-email',
                         'class' => 'form-control',
                         'placeholder' => 'Email'
-                    ])->add('unique_id', 'text', [
+                    ])->add('unique_id', 'text', null, [
                         'id' => 'login-unique_id',
                         'class' => 'form-control',
                         'placeholder' => 'Unique Id'
-                    ])->add('password', 'password', [
+                    ])->add('password', 'password', null, [
                         'id' => 'login-password',
                         'class' => 'form-control',
                         'placeholder' => 'Password'
-                    ])->add('confirm_password', 'password', [
+                    ])->add('confirm_password', 'password', null, [
                         'id' => 'login-confirm-password',
                         'class' => 'form-control',
                         'placeholder' => 'Confirm Password'
@@ -91,8 +93,8 @@
                         $session->setUser($farmer);
 
                         return new RedirectResponse("/");
-                    } catch (\PDOException $e) {
-                        var_dump($e);
+                    } catch (PDOException $e) {
+                        throw $e;
                     }
                 }
             }

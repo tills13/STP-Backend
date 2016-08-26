@@ -4,41 +4,34 @@ api:
     routes: 
         sync:
             route: /sync
-            controller: APIController
-            method: sync
-            methods: [get,post]
+            use: API::APIController:sync
+            check: checkIsAuthenticated
         new_trade:
             route: /trade/new
-            controller: API:TradeController
-            method: new
+            use: API::TradeController:new
+            check: checkIsAuthenticated
+            methods: [GET,POST]
         trade_overview:
             route: /trade/{trade:int}
-            controller: API:TradeController
-            method: overview
+            use: API::TradeController:overview
         farmer_overview:
-            route: /farmer/{farmer:text}/overview
-            controller: API:FarmerController
-            method: overview
+            route: /farmer/{farmer:text}
+            use: API::FarmerController:overview
         farmers:
             route: /farmers
-            controller: API:FarmerController
-            method: getFarmers
+            use: API::APIController:list
         partner_overview:
-            route: /partner/{partner:int}/overview
-            controller: API:PartnerController
-            method: overview
+            route: /partner/{partner:int}
+            use: API::PartnerController:overview
         contracts:
             route: /contracts
-            controller: API:ContractController
+            use: API::ContractController:list
             method: list
         contract_overview:
             route: /contract/{contract:int}
-            controller: API:ContractController
-            method: overview
+            use: API::ContractController:overview
         fulfill_contract:
             route: /contract/{contract:int}/fulfill
-            controller: API:ContractController
-            method: fulfill
+            use: API::ContractController:fulfill
+            check: checkIsAuthenticated
             methods: [POST]
-
-

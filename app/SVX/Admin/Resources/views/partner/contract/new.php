@@ -10,22 +10,15 @@
                 <h2>New Contract</h2>
             </div>
             <?=$form->start()?>
-                <div class="form-group">
-                    <?=$form->get('title')->render()?>                    
-                </div>
-                <div class="form-group">
-                    <?=$form->get('description')->render()?>
-                </div>
+                <?=$this->formRow($form, 'title')?>                    
+                <?=$this->formRow($form, 'description')?>
+                
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <?=$form->get('payout')->render()?>
-                        </div>
+                        <?=$this->formRow($form, 'payout')?>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <?=$form->get('total_orders')->render()?>
-                        </div>
+                        <?=$this->formRow($form, 'total_orders')?>
                     </div>
                 </div>
                 

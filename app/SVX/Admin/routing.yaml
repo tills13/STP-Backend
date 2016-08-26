@@ -4,17 +4,13 @@ partner:
     routes: 
         new: 
             route: /new
-            controller: Admin:PartnerController
-            method: new
+            use: Admin::PartnerController:new
         new_contract: 
             route: /{partner:int}/new_contract
-            controller: Admin:PartnerController
-            method: newContract
-        edit: 
+            use: Admin::PartnerController:newContract
+        edit:
             route: /{partner:int}/edit
-            controller: Admin:PartnerController
-            method: edit
-
+            use: Admin::PartnerController:edit
 admin:
     type: group
     route: /admin
@@ -22,10 +18,11 @@ admin:
     routes:
         manage_cache:
             route: /cache
-            controller: Admin:AdminController
-            method: manageCache
+            use: Admin::AdminController:manageCache
         invalidate_cache:
             route: /cache/invalidate/
-            controller: Admin:AdminController
-            method: invalidateCache
-            methods: [post]
+            use: Admin::AdminController:invalidateCache
+            methods: [POST]
+        test:
+            route: /test
+            use: Admin::AdminController:test

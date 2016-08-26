@@ -1,7 +1,7 @@
 <?php
     namespace SVX\Common\Repository;
 
-    use SebastianExtra\Repository\Repository;
+    use SebastianExtra\ORM\Repository\Repository;
 
     class PartnerRepository extends Repository {
         public function getAllPartners() {

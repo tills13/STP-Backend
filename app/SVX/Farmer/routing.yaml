@@ -5,12 +5,10 @@ farmer:
     routes:
         overview:
             route: /
-            controller: Farmer:FarmerController
-            method: overview
+            use: Farmer::FarmerController:overview
         edit_self:
             route: /edit
-            controller: Farmer:FarmerController
-            method: edit
+            use: Farmer::FarmerController:edit
 
 trade:
     type: group
@@ -19,9 +17,7 @@ trade:
     routes:
         delete_trade:
             route: /{trade:int}/delete
-            controller: Farmer:TradeController
-            method: delete
+            use: Farmer::TradeController:delete
         purchase_trade:
             route: /{trade:int}/purchase
-            controller: Farmer:TradeController
-            method: purchaseTrade
+            use: Farmer::TradeController:purchaseTrade

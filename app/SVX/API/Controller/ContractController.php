@@ -11,9 +11,9 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
-    use SVX\Common\Model\Contract;
-    use SVX\Common\Model\ContractFulfillment;
-    use SVX\Common\Model\ContractItem;
+    use SVX\Common\Entity\Contract;
+    use SVX\Common\Entity\ContractFulfillment;
+    use SVX\Common\Entity\ContractItem;
 
 	class ContractController extends Controller {
         public function listAction(Request $request) {

@@ -1,4 +1,7 @@
 <?=$this->extend('master')?>
+
+<?=$this->block('title', 'Register')?>
+
 <?=$this->block('body')?>
 	<div class="row">
 		<div class="col-md-6 col-sm-10 col-xs-12 col-md-offset-3 col-sm-offset-1">
@@ -10,7 +13,7 @@
 				<?=$this->formRow($form, 'email')?>
 
 				<div class="form-group">
-					<label for="<?=$form->get('unique_id')->getId()?>"><?=$this->formLabel($form, 'unique_id')?></label>
+					<label for="<?=$form->get('unique_id')->getName()?>"><?=$this->formLabel($form, 'unique_id')?></label>
 					<div class="input-group">
 						<?=$form->get('unique_id')->render()?>
 						<span class="input-group-addon"><a href="#">?</a></span>

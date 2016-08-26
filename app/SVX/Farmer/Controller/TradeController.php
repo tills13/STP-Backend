@@ -9,7 +9,7 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
-    use SVX\Common\Model\Trade;
+    use SVX\Common\Entity\Trade;
 
     class TradeController extends Controller {
         public function deleteAction(Request $request, $trade) {

@@ -1,69 +1,50 @@
 index:
     route: /
-    controller: Common:TradeController
-    method: list
-
-trades:
-    route: /trades
-    controller: Common:TradeController
-    method: list
-
-trade_overview:
-    route: /trade/{trade:int}
-    controller: Common:TradeController
-    method: overview
-
-farmer_overview:
-    route: /farmer/{farmer:text}
-    controller: Common:FarmerController
-    method: overview
-
-heartbeat: 
-    route: /heartbeat
-    controller: SVXController
-    method: heartbeat
-
-login:
-    route: /login
-    controller: SecurityController
-    method: login
-
-register:
-    route: /register
-    controller: SecurityController
-    method: register
-
-logout:
-    route: /logout
-    controller: SecurityController
-    method: logout
+    use: Common::TradeController:list
 
 test:
     route: /test
-    controller: SVXController
-    method: test
+    use: Common::SVXController:testAction
+
+trades:
+    route: /trades
+    use: Common::TradeController:list
+
+trade_overview:
+    route: /trade/{trade:int}
+    use: Common::TradeController:overview
+
+farmer_overview:
+    route: /farmer/{farmer:text}
+    use: Common::FarmerController:overview
+
+login:
+    route: /login
+    use: Common::SecurityController:login
+
+register:
+    route: /register
+    use: Common::SecurityController:register
+
+logout:
+    route: /logout
+    use: Common::SecurityController:logout
 
 search:
     route: /search
-    controller: SVXController
-    method: search
+    use: Common::SVXController:search
 
 jobs:
     route: /jobs
-    controller: JobController
-    method: list
-
-
-
+    use: Common::JobController:list
+    
 partners:
     type: group
     route: /partners
     routes: 
         list:
             route: ~
-            controller: PartnerController
-            method: list
+            use: Common::PartnerController:list
         overview:
             route: /{partner:int}
-            controller: PartnerController
-            method: overview
+            use: Common::PartnerController:overview

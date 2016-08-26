@@ -1,6 +1,7 @@
 <?php
 	namespace SVX\API;
 
+	use Sebastian\Core\Session\Session;
 	use Sebastian\Core\Component\Component;
 	use Sebastian\Core\Context\ContextInterface;
 	use Sebastian\Utility\Configuration\Configuration;
@@ -13,9 +14,7 @@
 			$this->setWeight(100);
 		}
 
-		public function checkRequirements(ContextInterface $context) {
-			$em = $context->getEntityManager();
-			
-			return true;
+		public function checkIsAuthenticated(Session $session) {
+			return $session->check();
 		}
 	}

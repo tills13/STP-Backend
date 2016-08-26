@@ -6,9 +6,9 @@
     use Sebastian\Core\Http\Response\Response;
     use Sebastian\Utility\Utility\Utils;
 
-    use SVX\Common\Model\Contract;
-    use SVX\Common\Model\ContractItem;
-    use SVX\Common\Model\Partner;
+    use SVX\Common\Entity\Contract;
+    use SVX\Common\Entity\ContractItem;
+    use SVX\Common\Entity\Partner;
 
     class AdminController extends Controller {
         public function manageCacheAction(Request $request) {
@@ -44,5 +44,9 @@
             } else {
                 return new Response(0);
             }
+        }
+
+        public function testAction() {
+            die('admin test');
         }
     }

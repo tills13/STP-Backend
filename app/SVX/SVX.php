@@ -22,16 +22,12 @@
 			$this->registerExceptionHandler($this);
 		}
 
-		public function preHandle() {
-			parent::preHandle();
-		}
-
 		public function getWebDirectory() {
 			return implode(DIRECTORY_SEPARATOR, [APP_ROOT, '..', 'web']);
 		} 
 
 		public function onException(Exception $e) {
-			print ($e->getMessage());
+			print ("<pre>SVX::onException => {$e->getMessage()}</pre>");
 			return true;
 		}
 

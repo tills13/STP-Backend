@@ -16,7 +16,6 @@
         }
 
         include_once($path);
-        //require_once($path);
     };
 
     spl_autoload_register($autoLoader);

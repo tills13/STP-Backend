@@ -1,7 +1,7 @@
 <?php
 	namespace SVX\Common\Repository;
 
-	use SebastianExtra\Repository\Repository;
+	use SebastianExtra\ORM\Repository\Repository;
 
 	class FarmerRepository extends Repository {
 		public function login($identification, $password) {

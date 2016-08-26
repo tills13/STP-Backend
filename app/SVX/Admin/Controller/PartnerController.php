@@ -6,9 +6,9 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Utility\Utility\Utils;
 
-    use SVX\Common\Model\Contract;
-    use SVX\Common\Model\ContractItem;
-    use SVX\Common\Model\Partner;
+    use SVX\Common\Entity\Contract;
+    use SVX\Common\Entity\ContractItem;
+    use SVX\Common\Entity\Partner;
 
     class PartnerController extends \SVX\Common\Controller\PartnerController {
         public function listAction(Request $request) {

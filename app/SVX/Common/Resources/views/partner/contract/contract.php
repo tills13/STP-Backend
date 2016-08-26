@@ -19,7 +19,20 @@
             <?php } ?>
         </div>
         <div class="row footer">
-            <div class="col-md-12 text-right">
+            <div class="col-md-6 text-left">
+                <?php
+                     $remaining = $contract->getRemainingOrders();
+                     $total = $contract->getTotalOrders();
+
+                     if ($remaining < ($total * 0.25)) $label = "label-danger";
+                     else if ($remaining < ($total * 0.50) && $remaining > ($total * 0.25)) $label = "label-warning";
+                     else $label = "label-success";
+                ?>
+                <div class="label <?=$label?>">
+                    <?=$remaining?>/<strong><?=$total?></strong>
+                </div>
+            </div>
+            <div class="col-md-6 text-right">
                 <div class="cost label label-primary">
                     <?=$contract->getPayout(true)?><span class="gold">G</span>
                 </div>

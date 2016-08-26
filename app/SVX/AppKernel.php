@@ -2,7 +2,6 @@
     namespace SVX;
 
     use Sebastian\Kernel;
-    use Sebastian\Internal\InternalComponent;
     use SebastianExtra\SebastianExtraComponent;
 
     class AppKernel extends Kernel {
@@ -14,8 +13,7 @@
                 new API\APIComponent($this, "API"),
                 new Farmer\FarmerComponent($this, "Farmer"),
                 new Admin\AdminComponent($this, "Admin"),
-                new SebastianExtraComponent($this, "Extra"),
-                new InternalComponent($this, "Internal")
+                new SebastianExtraComponent($this, "Sebastian\\Extra")
             ]);
 
             $this->boot();

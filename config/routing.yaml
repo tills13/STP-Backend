@@ -4,36 +4,30 @@
 
 javascript:
     route: /js/{filename:string}
-    controller: Common:ResourceController
-    method: getJS
+    use: Common::ResourceController:getJS
     methods: [get, post]
 
 style:
     route: /css/{filename:string}
-    controller: Common:ResourceController
-    method: getCSS
+    use: Common::ResourceController:getCSS
     methods: [get, post]
 
 font:
     route: /font/{filename:string}
-    controller: Common:ResourceController
-    method: getFont
+    use: Common::ResourceController:getFont
     methods: [get, post]
 
 asset:
     route: /assets/{filename:string}
-    controller: Common:ResourceController
-    method: getAsset
+    use: Common::ResourceController:getAsset
     methods: [get, post]
 
 logo:
     route: /assets/logos/{filename:string}
-    controller: Common:ResourceController
-    method: getAsset
+    use: Common::ResourceController:getAsset
     methods: [get, post]
 
 favicon:
     route: /{filename:string}.ico
-    controller: Common:ResourceController
-    method: getAsset
+    use: Common::ResourceController:getAsset
     methods: [get, post]

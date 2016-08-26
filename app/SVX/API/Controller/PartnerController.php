@@ -9,7 +9,7 @@
     use Sebastian\Core\Http\Response\RedirectResponse;
     use Sebastian\Core\Session\Session;
 
-    use SVX\Common\Model\Farmer;
+    use SVX\Common\Entity\Farmer;
 
 	class PartnerController extends Controller {
 		public function overviewAction(Request $request, $partner) {

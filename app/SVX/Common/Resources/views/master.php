@@ -9,5 +9,8 @@
         </div>
 
         <?=$this->import('footer')?>
+        <?php if ($application->getEnvironment() === 'dev' || $application->getConfig()->get('application.debug', false)) { ?>
+            <?=$this->debugToolbar()?>
+        <?php } ?>
 	</body>
 </html>

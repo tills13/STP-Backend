@@ -26,7 +26,7 @@
             <td><?=$mem['num_seg']?> Segment(s)</td>
         </tr>
         <tr>
-            <td colspan="2"><?=$segmentSize?></td>
+            <td colspan="2"><?=$segmentSize ?? 0?></td>
         </tr>
         <tr>
             <td>Start Time</td>
@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td>File Upload Support</td>
-            <td><?=$cache['file_upload_progress']?></td>
+            <td><?=$cache['file_upload_progress'] ?? 0?></td>
         </tr>
     </table>
 
@@ -77,13 +77,13 @@
                     <?=$item['ttl']?>
                 </td>
 			    <td class="responsive" data-sortable-key="<?=$item['creation_time']?>">
-                    <?=$utilities::ago($item['creation_time'])?>
+                    <?=$utility::ago($item['creation_time'])?>
                 </td>
 			    <td class="responsive" data-sortable-key="<?=$item['access_time']?>">
-                    <?=$utilities::ago($item['access_time'])?>
+                    <?=$utility::ago($item['access_time'])?>
                 </td>
 			    <td data-sortable-key="<?=$item['mem_size']?>">
-                    <?=$utilities::niceBytes($item['mem_size'])?>
+                    <?=$utility::niceBytes($item['mem_size'])?>
                 </td>
 			    <td>
                     <a href="javascript:;" class="fa fa-times" onclick="admin.invalidateCache(this)"></a>
